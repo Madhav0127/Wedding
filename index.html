@@ -13,7 +13,7 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Tailwind Custom Royal Palette & Typography (Exact Theme Preserved) -->
+  <!-- Tailwind Custom Royal Palette & Typography -->
   <script>
     tailwind.config = {
       theme: {
@@ -109,8 +109,9 @@
       <div class="flex items-center justify-between h-16">
         <!-- Monogram & Couple Name -->
         <a href="#home" class="flex items-center gap-2.5 group">
-          <span class="w-9 h-9 rounded-full bg-maroon text-gold-light flex items-center justify-center font-cinzel text-sm font-semibold border border-gold-bright/70 shadow-sm group-hover:scale-105 transition-transform">
-            V&amp;S
+          <span class="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black border-2 border-gold-bright/80 shadow-sm overflow-hidden flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+            <img id="navbarLogoImg" alt="Vidhi &amp; Shyam Monogram Logo" class="hidden w-full h-full object-contain p-0.5" />
+            <span id="navbarLogoFallback" class="w-full h-full bg-maroon text-gold-light flex items-center justify-center font-cinzel text-sm font-semibold">V&amp;S</span>
           </span>
           <span class="font-cinzel text-sm sm:text-base tracking-widest text-maroon font-semibold uppercase">
             Vidhi &amp; Shyam
@@ -309,12 +310,81 @@
   </section>
 
   <!-- ===================================================================== -->
+  <!-- 3. INVITATION & FAMILY BLESSINGS SECTION (WITH COUPLE PORTRAIT)       -->
+  <!-- ===================================================================== -->
+  <section id="blessings" class="py-16 sm:py-24 px-4 sm:px-6 bg-cream/65 border-y border-gold/25">
+    <div class="max-w-4xl mx-auto text-center reveal">
+      <p class="font-cinzel text-xs uppercase tracking-[0.28em] text-gold-dark font-semibold mb-2">
+        Warm Invitation &amp; Blessings
+      </p>
+      <h2 class="font-cinzel text-3xl sm:text-4xl text-maroon font-semibold mb-6">
+        With the Grace of the Almighty
+      </h2>
+
+      <!-- Gold Filigree Divider -->
+      <div class="flex items-center justify-center gap-3 mb-8">
+        <span class="h-px w-12 bg-gold/70"></span>
+        <span class="w-2.5 h-2.5 rotate-45 bg-gold-bright"></span>
+        <span class="h-px w-12 bg-gold/70"></span>
+      </div>
+
+      <div class="bg-ivory rounded-3xl border border-gold/35 shadow-card p-7 sm:p-11">
+        <!-- Royal Gold-Framed Couple Portrait Slot (Powered by Google Drive Loader) -->
+        <div class="mb-8 flex justify-center">
+          <div class="relative p-2 rounded-[2rem] bg-gradient-to-br from-gold-light via-gold-bright to-gold-dark shadow-royal max-w-xs sm:max-w-sm w-full">
+            <div class="relative overflow-hidden rounded-[1.55rem] bg-cream border-2 border-ivory aspect-[4/5]">
+              <img
+                id="couplePortraitImg"
+                src="https://placehold.co/600x750/6E1423/E6CC8B?text=Vidhi+%26+Shyam"
+                alt="Vidhi and Shyam Portrait"
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+              <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-maroon-dark/35 via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 inset-x-3 text-center">
+                <span class="inline-block px-4 py-1 rounded-full bg-ivory/90 backdrop-blur-xs text-maroon font-cinzel text-[11px] tracking-[0.2em] uppercase font-semibold border border-gold/50 shadow-xs">
+                  Vidhi &amp; Shyam
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-base sm:text-lg leading-relaxed text-ink/80 font-light">
+          With immense joy and heartfelt gratitude,
+          <span class="font-semibold text-maroon">Smt. Amisha &amp; Shri Hirenkumar Gandhi</span>
+          cordially invite you and your family to grace the auspicious wedding celebrations of their beloved daughter
+        </p>
+
+        <div class="my-6 py-4 border-y border-gold/25">
+          <p class="font-vibes text-4xl sm:text-5xl text-maroon">Vidhi</p>
+          <p class="text-xs uppercase tracking-[0.24em] text-gold-dark my-2 font-semibold">with</p>
+          <p class="font-vibes text-4xl sm:text-5xl text-maroon">Shyam</p>
+          <p class="text-sm text-ink/70 mt-2">
+            Son of <span class="font-medium text-ink">Smt. Amisha &amp; Shri Niraj Vaiwala</span>
+          </p>
+        </div>
+
+        <p class="text-sm sm:text-base text-ink/75 leading-relaxed max-w-2xl mx-auto">
+          Your gracious presence, warm wishes, and blessings mean the world to our family as we celebrate tradition, love, and the beginning of a lifetime together.
+        </p>
+
+        <div class="mt-6 inline-flex items-center gap-2 text-xs sm:text-sm font-cinzel tracking-wider text-maroon bg-blush/70 px-5 py-2 rounded-full border border-gold/25">
+          <span class="text-gold-dark">✦</span>
+          <span>Awaiting your gracious presence</span>
+          <span class="text-gold-dark">✦</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
   <!-- 4. ALL 8 TRADITIONAL GUJARATI CEREMONIES                              -->
   <!-- ===================================================================== -->
   <section id="events" class="py-16 sm:py-24 px-4 sm:px-6 bg-ivory">
     <div class="max-w-6xl mx-auto">
       <!-- Section Heading -->
-      <div class="text-center max-w-2xl mx-auto mb-10 reveal">
+      <div class="text-center max-w-2xl mx-auto mb-12 reveal">
         <p class="font-cinzel text-xs uppercase tracking-[0.28em] text-gold-dark font-semibold mb-2">
           Shubh Prasang
         </p>
@@ -326,39 +396,25 @@
         </p>
       </div>
 
-      <!-- Interactive Filter Tabs -->
-      <div class="flex flex-wrap items-center justify-center gap-2.5 mb-10 reveal" role="tablist" aria-label="Filter wedding events">
-        <button type="button" data-filter="all" class="event-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all bg-maroon text-ivory shadow-sm border border-gold/40">
-          All Events
-        </button>
-        <button type="button" data-filter="pre-wedding" class="event-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all bg-cream text-ink/80 hover:bg-blush border border-gold/30">
-          Pre-Wedding
-        </button>
-        <button type="button" data-filter="wedding-day" class="event-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all bg-cream text-ink/80 hover:bg-blush border border-gold/30">
-          Wedding &amp; Reception
-        </button>
-      </div>
-
-      <!-- Events Cards Grid (All 8 Ceremonies) -->
+      <!-- Events Cards Grid (8 Ceremonies — No Filter Tabs, No Day Badges, No Attire Pills) -->
       <div id="eventsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Event 1: Pallu -->
-        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between" data-category="pre-wedding">
+
+        <!-- 1. Pallu -->
+        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="w-12 h-12 rounded-2xl bg-blush/85 border border-gold/35 flex items-center justify-center text-maroon shrink-0">
-                <!-- Traditional Drape / Blessing SVG -->
+                <!-- Traditional Drape / Ribbon SVG -->
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l2.2 4.5 5 .7-3.6 3.5.9 5-4.5-2.4-4.5 2.4.9-5L4.8 8.2l5-.7L12 3z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 7c3-2 6-2 8 0s5 2 8 0v10c-3 2-6 2-8 0s-5-2-8 0V7z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 7v10" />
                 </svg>
               </div>
-              <span class="px-3 py-1 rounded-full text-[11px] font-medium bg-cream text-gold-dark border border-gold/35">
-                Pre-Wedding • Afternoon
-              </span>
             </div>
 
             <h3 class="font-cinzel text-2xl text-maroon font-semibold mb-1.5">Pallu</h3>
             <p class="text-sm text-ink/75 leading-relaxed mb-5">
-              An auspicious traditional Gujarati ceremony celebrating warm family blessings, customs, and joyful togetherness.
+              A cherished Gujarati tradition of warmth, heartfelt blessings, and joyous family bonding as the wedding celebrations commence.
             </p>
 
             <div class="space-y-2.5 text-xs sm:text-sm text-ink/80 border-t border-gold/25 pt-4">
@@ -368,27 +424,28 @@
               </div>
               <div class="flex items-center gap-2.5">
                 <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>1:30 PM</span>
+                <span>01:30 PM</span>
               </div>
               <!-- EDIT LOCATION HERE -->
-              <div class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                <span>Singapuri Wadi, Salabatpura, Surat, Gujarat</span>
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-gold-dark shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <span>Khatodara Wadi, near Udhna Darwaja, Surat, Gujarat</span>
               </div>
             </div>
           </div>
 
-          <div class="mt-5 pt-4 border-t border-gold/20 flex items-center justify-end gap-2">
+          <!-- Card Footer: Clean Directions Button Only -->
+          <div class="mt-5 pt-4 border-t border-gold/20 flex justify-end">
             <!-- EDIT LOCATION HERE -->
-            <a href="https://maps.app.goo.gl/dKxJY98oy2hpKRMB7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-maroon hover:text-gold-dark transition-colors py-1.5 px-2">
+            <a href="https://maps.app.goo.gl/E53RTcGYsF8XM2kG6" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blush/70 hover:bg-maroon text-maroon hover:text-ivory text-xs font-semibold border border-gold/30 transition-colors">
               <span>Directions</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
           </div>
         </article>
 
-        <!-- Event 2: Mosariya -->
-        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between" data-category="pre-wedding">
+        <!-- 2. Mosariya -->
+        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="w-12 h-12 rounded-2xl bg-blush/85 border border-gold/35 flex items-center justify-center text-maroon shrink-0">
@@ -397,9 +454,6 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M20 12v7a2 2 0 01-2 2H6a2 2 0 01-2-2v-7m16 0H4m16 0l-1-4H5l-1 4m8-4v13m0-13c-1.5-2.5-5-2.5-5 0s3.5 0 5 0zm0 0c1.5-2.5 5-2.5 5 0s-3.5 0-5 0z" />
                 </svg>
               </div>
-              <span class="px-3 py-1 rounded-full text-[11px] font-medium bg-cream text-gold-dark border border-gold/35">
-                Pre-Wedding • Evening
-              </span>
             </div>
 
             <h3 class="font-cinzel text-2xl text-maroon font-semibold mb-1.5">Mosariya</h3>
@@ -414,27 +468,27 @@
               </div>
               <div class="flex items-center gap-2.5">
                 <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>8:00 PM</span>
+                <span>08:00 PM</span>
               </div>
               <!-- EDIT LOCATION HERE -->
-              <div class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                <span>Singapuri Wadi, Salabatpura, Surat, Gujarat</span>
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-gold-dark shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <span>Khatodara Wadi, near Udhna Darwaja, Surat, Gujarat</span>
               </div>
             </div>
           </div>
 
-          <div class="mt-5 pt-4 border-t border-gold/20 flex items-center justify-end gap-2">
+          <div class="mt-5 pt-4 border-t border-gold/20 flex justify-end">
             <!-- EDIT LOCATION HERE -->
-            <a href="https://maps.app.goo.gl/dKxJY98oy2hpKRMB7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-maroon hover:text-gold-dark transition-colors py-1.5 px-2">
+            <a href="https://maps.app.goo.gl/E53RTcGYsF8XM2kG6" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blush/70 hover:bg-maroon text-maroon hover:text-ivory text-xs font-semibold border border-gold/30 transition-colors">
               <span>Directions</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
           </div>
         </article>
 
-        <!-- Event 3: Katha -->
-        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between" data-category="pre-wedding">
+        <!-- 3. Katha -->
+        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="w-12 h-12 rounded-2xl bg-blush/85 border border-gold/35 flex items-center justify-center text-maroon shrink-0">
@@ -445,14 +499,11 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M8 20h8" />
                 </svg>
               </div>
-              <span class="px-3 py-1 rounded-full text-[11px] font-medium bg-cream text-gold-dark border border-gold/35">
-                Pre-Wedding • Afternoon
-              </span>
             </div>
 
             <h3 class="font-cinzel text-2xl text-maroon font-semibold mb-1.5">Katha</h3>
             <p class="text-sm text-ink/75 leading-relaxed mb-5">
-              Auspicious prayers, sacred recitals, and divine blessings to begin the wedding festivities in peace and devotion.
+              Auspicious prayers, sacred recitals, and divine blessings to invoke peace, grace, and devotion for the wedding festivities.
             </p>
 
             <div class="space-y-2.5 text-xs sm:text-sm text-ink/80 border-t border-gold/25 pt-4">
@@ -462,30 +513,27 @@
               </div>
               <div class="flex items-center gap-2.5">
                 <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>4:00 PM</span>
+                <span>04:00 PM</span>
               </div>
               <!-- EDIT LOCATION HERE -->
-              <div class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                <span>Singapuri Wadi, Salabatpura, Surat, Gujarat</span>
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-gold-dark shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <span>53/B, Swami Gunatit nagar society, Near Rupali canal, Bhatar Road, Surat</span>
               </div>
             </div>
           </div>
 
-          <div class="mt-5 pt-4 border-t border-gold/20 flex items-center justify-between gap-2">
-            <span class="inline-flex items-center px-3 py-1 rounded-full bg-blush/75 text-maroon text-[11px] font-medium">
-              Attire: Traditional Ethnic
-            </span>
+          <div class="mt-5 pt-4 border-t border-gold/20 flex justify-end">
             <!-- EDIT LOCATION HERE -->
-            <a href="https://maps.app.goo.gl/dKxJY98oy2hpKRMB7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-maroon hover:text-gold-dark transition-colors py-1.5 px-2">
+            <a href="https://maps.app.goo.gl/2AXSA8jfEuqKe4366" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blush/70 hover:bg-maroon text-maroon hover:text-ivory text-xs font-semibold border border-gold/30 transition-colors">
               <span>Directions</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
           </div>
         </article>
 
-        <!-- Event 4: Mehndi -->
-        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between" data-category="pre-wedding">
+        <!-- 4. Mehndi -->
+        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="w-12 h-12 rounded-2xl bg-blush/85 border border-gold/35 flex items-center justify-center text-maroon shrink-0">
@@ -495,9 +543,6 @@
                   <circle cx="12" cy="7" r="1.5" fill="currentColor" />
                 </svg>
               </div>
-              <span class="px-3 py-1 rounded-full text-[11px] font-medium bg-cream text-gold-dark border border-gold/35">
-                Pre-Wedding • Morning
-              </span>
             </div>
 
             <h3 class="font-cinzel text-2xl text-maroon font-semibold mb-1.5">Mehndi</h3>
@@ -515,41 +560,38 @@
                 <span>10:00 AM</span>
               </div>
               <!-- EDIT LOCATION HERE -->
-              <div class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                <span>Singapuri Wadi, Salabatpura, Surat, Gujarat</span>
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-gold-dark shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <span>53/B, Swami Gunatit nagar society, Near Rupali canal, Bhatar Road, Surat</span>
               </div>
             </div>
           </div>
 
-          <div class="mt-5 pt-4 border-t border-gold/20 flex items-center justify-end gap-2">
+          <div class="mt-5 pt-4 border-t border-gold/20 flex justify-end">
             <!-- EDIT LOCATION HERE -->
-            <a href="https://maps.app.goo.gl/dKxJY98oy2hpKRMB7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-maroon hover:text-gold-dark transition-colors py-1.5 px-2">
+            <a href="https://maps.app.goo.gl/2AXSA8jfEuqKe4366" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blush/70 hover:bg-maroon text-maroon hover:text-ivory text-xs font-semibold border border-gold/30 transition-colors">
               <span>Directions</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
           </div>
         </article>
 
-        <!-- Event 5: Haldi -->
-        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between" data-category="pre-wedding">
+        <!-- 5. Haldi -->
+        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="w-12 h-12 rounded-2xl bg-blush/85 border border-gold/35 flex items-center justify-center text-maroon shrink-0">
-                <!-- Radiant Sun / Haldi SVG -->
+                <!-- Radiant Sun / Haldi Blossom SVG -->
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="4" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 2v3m0 14v3M4.93 4.93l2.12 2.12m9.9 9.9l2.12 2.12M2 12h3m14 0h3M4.93 19.07l2.12-2.12m9.9-9.9l2.12-2.12" />
                 </svg>
               </div>
-              <span class="px-3 py-1 rounded-full text-[11px] font-medium bg-cream text-gold-dark border border-gold/35">
-                Pre-Wedding • Morning
-              </span>
             </div>
 
             <h3 class="font-cinzel text-2xl text-maroon font-semibold mb-1.5">Haldi</h3>
             <p class="text-sm text-ink/75 leading-relaxed mb-5">
-              A radiant morning filled with auspicious turmeric blessings, marigold blooms, laughter, and joyful family rituals.
+              A radiant morning filled with turmeric blessings, marigold petals, laughter, and joyful family traditions.
             </p>
 
             <div class="space-y-2.5 text-xs sm:text-sm text-ink/80 border-t border-gold/25 pt-4">
@@ -559,27 +601,27 @@
               </div>
               <div class="flex items-center gap-2.5">
                 <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>8:00 AM</span>
+                <span>08:00 AM</span>
               </div>
               <!-- EDIT LOCATION HERE -->
-              <div class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                <span>Singapuri Wadi, Salabatpura, Surat, Gujarat</span>
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-gold-dark shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <span>53/B, Swami Gunatit nagar society, Near Rupali canal, Bhatar Road, Surat</span>
               </div>
             </div>
           </div>
 
-          <div class="mt-5 pt-4 border-t border-gold/20 flex items-center justify-end gap-2">
+          <div class="mt-5 pt-4 border-t border-gold/20 flex justify-end">
             <!-- EDIT LOCATION HERE -->
-            <a href="https://maps.app.goo.gl/dKxJY98oy2hpKRMB7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-maroon hover:text-gold-dark transition-colors py-1.5 px-2">
+            <a href="https://maps.app.goo.gl/2AXSA8jfEuqKe4366" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blush/70 hover:bg-maroon text-maroon hover:text-ivory text-xs font-semibold border border-gold/30 transition-colors">
               <span>Directions</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
           </div>
         </article>
 
-        <!-- Event 6: Gruhshanti -->
-        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between" data-category="wedding-day">
+        <!-- 6. Gruhshanti -->
+        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="w-12 h-12 rounded-2xl bg-blush/85 border border-gold/35 flex items-center justify-center text-maroon shrink-0">
@@ -590,9 +632,6 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M6 10c1-1.5 2.5-2 4-2M18 10c-1-1.5-2.5-2-4-2" />
                 </svg>
               </div>
-              <span class="px-3 py-1 rounded-full text-[11px] font-medium bg-cream text-gold-dark border border-gold/35">
-                Wedding Day • Morning
-              </span>
             </div>
 
             <h3 class="font-cinzel text-2xl text-maroon font-semibold mb-1.5">Gruhshanti</h3>
@@ -610,27 +649,24 @@
                 <span>10:30 AM</span>
               </div>
               <!-- EDIT LOCATION HERE -->
-              <div class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-gold-dark shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                 <span>Singapuri Wadi, Salabatpura, Surat, Gujarat</span>
               </div>
             </div>
           </div>
 
-          <div class="mt-5 pt-4 border-t border-gold/20 flex items-center justify-between gap-2">
-            <span class="inline-flex items-center px-3 py-1 rounded-full bg-blush/75 text-maroon text-[11px] font-medium">
-              Attire: Yellow / Pastel Silk
-            </span>
+          <div class="mt-5 pt-4 border-t border-gold/20 flex justify-end">
             <!-- EDIT LOCATION HERE -->
-            <a href="https://maps.app.goo.gl/dKxJY98oy2hpKRMB7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-maroon hover:text-gold-dark transition-colors py-1.5 px-2">
+            <a href="https://maps.app.goo.gl/dKxJY98oy2hpKRMB7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blush/70 hover:bg-maroon text-maroon hover:text-ivory text-xs font-semibold border border-gold/30 transition-colors">
               <span>Directions</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
           </div>
         </article>
 
-        <!-- Event 7: Wedding / Hast Melap (Highlighted Royal Gold-Bordered Card) -->
-        <article class="event-card reveal group relative bg-gradient-to-b from-ivory to-blush-soft rounded-3xl border-2 border-gold-bright/70 shadow-royal transition-all duration-300 p-6 flex flex-col justify-between" data-category="wedding-day">
+        <!-- 7. Wedding / Hast Melap (Highlighted Royal Card) -->
+        <article class="event-card reveal group relative bg-gradient-to-b from-ivory to-blush-soft rounded-3xl border-2 border-gold-bright/75 shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="w-12 h-12 rounded-2xl bg-maroon text-gold-light border border-gold-bright flex items-center justify-center shrink-0 shadow-sm">
@@ -641,9 +677,6 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 4l1.2 2.4L15.8 7 13.8 8.6l.5 2.4L12 9.8 9.7 11l.5-2.4L8.2 7l2.6-.6L12 4z" />
                 </svg>
               </div>
-              <span class="px-3 py-1 rounded-full text-[11px] font-semibold bg-maroon text-gold-light border border-gold/50">
-                Wedding Day • Evening
-              </span>
             </div>
 
             <h3 class="font-cinzel text-2xl text-maroon font-semibold mb-1.5">Wedding / Hast Melap</h3>
@@ -658,30 +691,27 @@
               </div>
               <div class="flex items-center gap-2.5">
                 <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>8:00 PM</span>
+                <span>08:00 PM</span>
               </div>
               <!-- EDIT LOCATION HERE -->
-              <div class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-gold-dark shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                 <span>Singapuri Wadi, Salabatpura, Surat, Gujarat</span>
               </div>
             </div>
           </div>
 
-          <div class="mt-5 pt-4 border-t border-gold/25 flex items-center justify-between gap-2">
-            <span class="inline-flex items-center px-3 py-1 rounded-full bg-maroon/10 text-maroon text-[11px] font-semibold">
-              Attire: Royal Indian Traditional
-            </span>
+          <div class="mt-5 pt-4 border-t border-gold/25 flex justify-end">
             <!-- EDIT LOCATION HERE -->
-            <a href="https://maps.app.goo.gl/dKxJY98oy2hpKRMB7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-maroon hover:text-gold-dark transition-colors py-1.5 px-2">
+            <a href="https://maps.app.goo.gl/dKxJY98oy2hpKRMB7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-maroon text-ivory hover:bg-maroon-dark text-xs font-semibold border border-gold-bright/60 shadow-xs transition-colors">
               <span>Directions</span>
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              <svg class="w-3.5 h-3.5 text-gold-light" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
           </div>
         </article>
 
-        <!-- Event 8: Reception -->
-        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between" data-category="wedding-day">
+        <!-- 8. Reception -->
+        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="w-12 h-12 rounded-2xl bg-blush/85 border border-gold/35 flex items-center justify-center text-maroon shrink-0">
@@ -691,9 +721,6 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z" />
                 </svg>
               </div>
-              <span class="px-3 py-1 rounded-full text-[11px] font-medium bg-cream text-gold-dark border border-gold/35">
-                Reception • Evening
-              </span>
             </div>
 
             <h3 class="font-cinzel text-2xl text-maroon font-semibold mb-1.5">Reception</h3>
@@ -708,37 +735,34 @@
               </div>
               <div class="flex items-center gap-2.5">
                 <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>8:00 PM</span>
+                <span>08:00 PM</span>
               </div>
               <!-- EDIT LOCATION HERE -->
-              <div class="flex items-center gap-2.5">
-                <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <div class="flex items-start gap-2.5">
+                <svg class="w-4 h-4 text-gold-dark shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                 <span>Singapuri Wadi, Salabatpura, Surat, Gujarat</span>
               </div>
             </div>
           </div>
 
-          <div class="mt-5 pt-4 border-t border-gold/20 flex items-center justify-between gap-2">
-            <span class="inline-flex items-center px-3 py-1 rounded-full bg-blush/75 text-maroon text-[11px] font-medium">
-              Attire: Evening Formal / Festive
-            </span>
+          <div class="mt-5 pt-4 border-t border-gold/20 flex justify-end">
             <!-- EDIT LOCATION HERE -->
-            <a href="https://maps.app.goo.gl/dKxJY98oy2hpKRMB7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-maroon hover:text-gold-dark transition-colors py-1.5 px-2">
+            <a href="https://maps.app.goo.gl/dKxJY98oy2hpKRMB7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blush/70 hover:bg-maroon text-maroon hover:text-ivory text-xs font-semibold border border-gold/30 transition-colors">
               <span>Directions</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
             </a>
           </div>
         </article>
+
       </div>
     </div>
   </section>
 
   <!-- ===================================================================== -->
-  <!-- 5. CAPTURED MOMENTS — GOOGLE DRIVE PHOTO GALLERY SECTION              -->
+  <!-- 5. PHOTO GALLERY SECTION ("CAPTURED MOMENTS")                         -->
   <!-- ===================================================================== -->
-  <section id="gallery" class="py-16 sm:py-24 px-4 sm:px-6 bg-cream/65 border-t border-gold/25">
+  <section id="gallery" class="py-16 sm:py-24 px-4 sm:px-6 bg-cream/65 border-t border-gold/25 bg-royal-pattern">
     <div class="max-w-6xl mx-auto">
-      <!-- Section Heading -->
       <div class="text-center max-w-2xl mx-auto mb-12 reveal">
         <p class="font-cinzel text-xs uppercase tracking-[0.28em] text-gold-dark font-semibold mb-2">
           Cherished Memories
@@ -746,19 +770,13 @@
         <h2 class="font-cinzel text-3xl sm:text-4xl text-maroon font-semibold mb-4">
           Captured Moments
         </h2>
-        <!-- Gold Filigree Divider -->
-        <div class="flex items-center justify-center gap-3 mb-4">
-          <span class="h-px w-12 bg-gold/70"></span>
-          <span class="w-2.5 h-2.5 rotate-45 bg-gold-bright"></span>
-          <span class="h-px w-12 bg-gold/70"></span>
-        </div>
         <p class="text-sm sm:text-base text-ink/70">
-          Glimpses of love, laughter, and timeless moments celebrating Vidhi &amp; Shyam.
+          Glimpses of love, laughter, and the beautiful journey leading up to our forever.
         </p>
       </div>
 
-      <!-- Responsive 2-to-3 Column Gold-Bordered Gallery Grid (Populated via JS) -->
-      <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <!-- 6-Photo Responsive Gallery Grid (Populated via GOOGLE_DRIVE_IMAGES) -->
+      <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6"></div>
     </div>
   </section>
 
@@ -771,12 +789,12 @@
 
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-12 border-b border-gold/25">
-        <!-- Column 1: Main Wedding Venue -->
+        <!-- Column 1: Primary Wedding Venue -->
         <div class="space-y-3">
           <p class="font-cinzel text-xs uppercase tracking-[0.25em] text-gold-light">Primary Venue</p>
           <h3 class="font-cinzel text-xl font-semibold text-ivory">Singapuri Wadi</h3>
           <p class="text-sm text-ivory/80 leading-relaxed">
-            Salabatpura<br />
+            Salabatpura,<br />
             Surat, Gujarat – 395007
           </p>
           <a
@@ -842,23 +860,23 @@
   </footer>
 
   <!-- ===================================================================== -->
-  <!-- 8. FULL-SCREEN PHOTO LIGHTBOX MODAL                                   -->
+  <!-- 7. FULL-SCREEN LIGHTBOX MODAL FOR PHOTO GALLERY                       -->
   <!-- ===================================================================== -->
   <div
     id="lightboxModal"
     role="dialog"
     aria-modal="true"
-    aria-label="Photo preview lightbox"
-    class="fixed inset-0 z-50 hidden bg-ink/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
+    aria-label="Photo lightbox viewer"
+    class="fixed inset-0 z-50 hidden bg-ink/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
   >
     <!-- Close Button -->
     <button
       id="lightboxClose"
       type="button"
-      aria-label="Close photo preview"
-      class="absolute top-4 right-4 sm:top-6 sm:right-6 p-3 rounded-full bg-maroon/90 text-ivory border border-gold-bright/60 hover:bg-maroon transition-colors shadow-lg"
+      aria-label="Close photo viewer"
+      class="absolute top-4 right-4 sm:top-6 sm:right-6 p-3 rounded-full bg-ivory/15 hover:bg-ivory/25 text-ivory border border-gold/40 transition-colors"
     >
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
@@ -868,37 +886,34 @@
       id="lightboxPrev"
       type="button"
       aria-label="Previous photo"
-      class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-maroon/85 text-gold-light border border-gold-bright/50 hover:bg-maroon transition-colors shadow-lg"
+      class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-ivory/15 hover:bg-ivory/25 text-ivory border border-gold/40 transition-colors"
     >
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
       </svg>
     </button>
 
-    <!-- Lightbox Image Frame -->
-    <div class="relative max-w-4xl w-full flex flex-col items-center">
-      <div class="relative rounded-3xl overflow-hidden border-2 border-gold-bright/75 shadow-2xl bg-maroon-dark/40 max-h-[78vh] flex items-center justify-center">
+    <!-- Active Lightbox Image & Caption -->
+    <figure class="max-w-4xl w-full flex flex-col items-center">
+      <div class="relative rounded-3xl overflow-hidden border-2 border-gold-bright/70 shadow-2xl bg-maroon-dark/40">
         <img
           id="lightboxImg"
           src=""
-          alt="Wedding photo preview"
-          class="max-h-[76vh] max-w-full w-auto h-auto object-contain"
+          alt="Wedding gallery photo"
+          class="max-h-[75vh] w-auto max-w-full object-contain"
         />
       </div>
-      <div class="mt-4 text-center">
-        <p id="lightboxCaption" class="font-cinzel text-sm sm:text-base text-gold-light tracking-wider font-medium"></p>
-        <p id="lightboxCounter" class="text-xs text-ivory/65 mt-1"></p>
-      </div>
-    </div>
+      <figcaption id="lightboxCaption" class="mt-4 font-cinzel text-sm sm:text-base tracking-wider text-gold-light text-center"></figcaption>
+    </figure>
 
     <!-- Next Button -->
     <button
       id="lightboxNext"
       type="button"
       aria-label="Next photo"
-      class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-maroon/85 text-gold-light border border-gold-bright/50 hover:bg-maroon transition-colors shadow-lg"
+      class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 p-3 rounded-full bg-ivory/15 hover:bg-ivory/25 text-ivory border border-gold/40 transition-colors"
     >
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
       </svg>
     </button>
@@ -920,10 +935,172 @@
       'use strict';
 
       /* --------------------------------------------------------------------- */
-      /* 3. LIVE TICKING COUNTDOWN TIMER (25 FEB 2027, 08:00 PM IST)           */
+      /* 1. GOOGLE DRIVE PHOTO CONFIGURATION (PASTE YOUR PUBLIC SHARE LINKS)   */
+      /*    Set each file in Google Drive to "Anyone with the link" (Viewer).  */
       /* --------------------------------------------------------------------- */
-      const WEDDING_TARGET_TIMESTAMP = new Date('2027-02-25T20:00:00+05:30').getTime();
+      const GOOGLE_DRIVE_IMAGES = {
+        navbarLogo: '', // PASTE YOUR GOOGLE DRIVE LOGO LINK HERE (e.g., Untitled design_20261121_121640_0000.jpg)
+        couplePortrait: '', // Paste Google Drive link for Couple Portrait here
+        gallery: [
+          { url: '', caption: 'Vidhi & Shyam — Forever Begins' },
+          { url: '', caption: 'Joyful Engagement Moments' },
+          { url: '', caption: 'Together in Tradition' },
+          { url: '', caption: 'Smiles & Blessings' },
+          { url: '', caption: 'Celebration of Love' },
+          { url: '', caption: 'Counting Down to Forever' },
+        ],
+      };
 
+      /**
+       * Converts a standard Google Drive share link into a direct web-viewable image URL.
+       * Supports /file/d/<ID>/view, ?id=<ID>, or direct HTTPS image URLs.
+       */
+      function toDriveImageUrl(rawUrl) {
+        if (!rawUrl || !rawUrl.trim()) return '';
+        const trimmed = rawUrl.trim();
+        const fileIdMatch =
+          trimmed.match(/\/file\/d\/([a-zA-Z0-9_-]+)/) ||
+          trimmed.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+        if (fileIdMatch && fileIdMatch[1]) {
+          return `https://drive.google.com/thumbnail?id=${fileIdMatch[1]}&sz=w1600`;
+        }
+        return trimmed;
+      }
+
+      function resolveImageUrl(rawUrl, fallbackUrl) {
+        const converted = toDriveImageUrl(rawUrl);
+        return converted || fallbackUrl;
+      }
+
+      /* --------------------------------------------------------------------- */
+      /* 2. POPULATE NAVBAR LOGO, COUPLE PORTRAIT & 6-PHOTO GALLERY            */
+      /* --------------------------------------------------------------------- */
+      const navbarLogoImg = document.getElementById('navbarLogoImg');
+      const navbarLogoFallback = document.getElementById('navbarLogoFallback');
+      const navbarLogoUrl = toDriveImageUrl(GOOGLE_DRIVE_IMAGES.navbarLogo);
+
+      if (navbarLogoImg && navbarLogoFallback && navbarLogoUrl) {
+        navbarLogoImg.onload = function () {
+          navbarLogoImg.classList.remove('hidden');
+          navbarLogoFallback.classList.add('hidden');
+        };
+        navbarLogoImg.onerror = function () {
+          navbarLogoImg.classList.add('hidden');
+          navbarLogoFallback.classList.remove('hidden');
+        };
+        navbarLogoImg.src = navbarLogoUrl;
+      }
+
+      const portraitFallback = 'https://placehold.co/600x750/6E1423/E6CC8B?text=Vidhi+%26+Shyam';
+      const couplePortraitImg = document.getElementById('couplePortraitImg');
+      if (couplePortraitImg) {
+        couplePortraitImg.src = resolveImageUrl(GOOGLE_DRIVE_IMAGES.couplePortrait, portraitFallback);
+        couplePortraitImg.onerror = function () {
+          this.onerror = null;
+          this.src = portraitFallback;
+        };
+      }
+
+      const galleryGrid = document.getElementById('galleryGrid');
+      const resolvedGallery = GOOGLE_DRIVE_IMAGES.gallery.map((item, idx) => {
+        const fallback = `https://placehold.co/800x600/F6EDE1/6E1423?text=Moment+${idx + 1}`;
+        return {
+          src: resolveImageUrl(item.url, fallback),
+          fallback,
+          caption: item.caption || `Moment ${idx + 1}`,
+        };
+      });
+
+      if (galleryGrid) {
+        resolvedGallery.forEach((photo, index) => {
+          const card = document.createElement('button');
+          card.type = 'button';
+          card.setAttribute('aria-label', `View photo: ${photo.caption}`);
+          card.className =
+            'reveal group relative overflow-hidden rounded-3xl border border-gold/45 bg-ivory shadow-card hover:shadow-royal transition-all duration-300 text-left focus:outline-none focus:ring-2 focus:ring-gold';
+
+          card.innerHTML = `
+            <div class="aspect-[4/3] w-full overflow-hidden bg-cream">
+              <img
+                src="${photo.src}"
+                alt="${photo.caption}"
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-maroon-dark/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <span class="font-cinzel text-xs sm:text-sm tracking-wider text-gold-light font-medium">${photo.caption}</span>
+            </div>
+          `;
+
+          const imgEl = card.querySelector('img');
+          imgEl.onerror = function () {
+            this.onerror = null;
+            this.src = photo.fallback;
+            resolvedGallery[index].src = photo.fallback;
+          };
+
+          card.addEventListener('click', () => openLightbox(index));
+          galleryGrid.appendChild(card);
+        });
+      }
+
+      /* Lightbox Modal Controls */
+      const lightboxModal = document.getElementById('lightboxModal');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const lightboxClose = document.getElementById('lightboxClose');
+      const lightboxPrev = document.getElementById('lightboxPrev');
+      const lightboxNext = document.getElementById('lightboxNext');
+      let currentLightboxIndex = 0;
+
+      function renderLightbox() {
+        const photo = resolvedGallery[currentLightboxIndex];
+        lightboxImg.src = photo.src;
+        lightboxImg.alt = photo.caption;
+        lightboxCaption.textContent = `${photo.caption} (${currentLightboxIndex + 1} / ${resolvedGallery.length})`;
+      }
+
+      function openLightbox(index) {
+        currentLightboxIndex = index;
+        renderLightbox();
+        lightboxModal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      }
+
+      function closeLightbox() {
+        lightboxModal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      function showPrevPhoto() {
+        currentLightboxIndex = (currentLightboxIndex - 1 + resolvedGallery.length) % resolvedGallery.length;
+        renderLightbox();
+      }
+
+      function showNextPhoto() {
+        currentLightboxIndex = (currentLightboxIndex + 1) % resolvedGallery.length;
+        renderLightbox();
+      }
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightboxPrev.addEventListener('click', showPrevPhoto);
+      lightboxNext.addEventListener('click', showNextPhoto);
+      lightboxModal.addEventListener('click', (e) => {
+        if (e.target === lightboxModal) closeLightbox();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (lightboxModal.classList.contains('hidden')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') showPrevPhoto();
+        if (e.key === 'ArrowRight') showNextPhoto();
+      });
+
+      /* --------------------------------------------------------------------- */
+      /* 3. PROMINENT LIVE TICKING COUNTDOWN (25 FEB 2027, 08:00 PM IST)       */
+      /* --------------------------------------------------------------------- */
+      const TARGET_TIMESTAMP = new Date('2027-02-25T20:00:00+05:30').getTime();
       const cdDays = document.getElementById('cdDays');
       const cdHours = document.getElementById('cdHours');
       const cdMinutes = document.getElementById('cdMinutes');
@@ -935,9 +1112,7 @@
       }
 
       function updateCountdown() {
-        const now = Date.now();
-        const diff = WEDDING_TARGET_TIMESTAMP - now;
-
+        const diff = TARGET_TIMESTAMP - Date.now();
         if (diff <= 0) {
           cdDays.textContent = '00';
           cdHours.textContent = '00';
@@ -946,8 +1121,6 @@
           countdownLabel.textContent = 'The Auspicious Wedding Day Has Arrived!';
           return;
         }
-
-        countdownLabel.textContent = 'Counting down to 25 Feb 2027';
 
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
@@ -987,35 +1160,7 @@
       });
 
       /* --------------------------------------------------------------------- */
-      /* 5. EVENTS FILTER TABS (ALL / PRE-WEDDING / WEDDING DAY)               */
-      /* --------------------------------------------------------------------- */
-      const filterButtons = document.querySelectorAll('.event-filter-btn');
-      const eventCards = document.querySelectorAll('.event-card');
-
-      filterButtons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const filter = btn.getAttribute('data-filter');
-
-          filterButtons.forEach((b) => {
-            b.classList.remove('bg-maroon', 'text-ivory', 'shadow-sm', 'border-gold/40');
-            b.classList.add('bg-cream', 'text-ink/80', 'border-gold/30');
-          });
-          btn.classList.add('bg-maroon', 'text-ivory', 'shadow-sm', 'border-gold/40');
-          btn.classList.remove('bg-cream', 'text-ink/80', 'border-gold/30');
-
-          eventCards.forEach((card) => {
-            const category = card.getAttribute('data-category');
-            const shouldShow = filter === 'all' || category === filter;
-            card.classList.toggle('hidden', !shouldShow);
-            if (shouldShow) {
-              card.classList.add('visible');
-            }
-          });
-        });
-      });
-
-      /* --------------------------------------------------------------------- */
-      /* 6. WHATSAPP INVITE COPY & TOAST NOTIFICATION                          */
+      /* 5. WHATSAPP INVITE COPY & TOAST NOTIFICATION                          */
       /* --------------------------------------------------------------------- */
       const copyInviteBtn = document.getElementById('copyInviteBtn');
       const toastEl = document.getElementById('toastMessage');
@@ -1037,8 +1182,7 @@
           `|| Shree Ganeshay Namah ||\n\n` +
           `With the blessings of Smt. Amisha & Shri Hirenkumar Gandhi, we warmly invite you to the wedding celebrations of *Vidhi & Shyam*!\n\n` +
           `Wedding Date: 25 February 2027 (08:00 PM IST)\n` +
-          `Venue: Singapuri Wadi, Salabatpura, Surat, Gujarat\n` +
-          `Map: https://maps.app.goo.gl/dKxJY98oy2hpKRMB7\n` +
+          `Primary Venue: Singapuri Wadi, Salabatpura, Surat, Gujarat\n` +
           `Ceremonies: Pallu, Mosariya, Katha, Mehndi, Haldi, Gruhshanti, Wedding / Hast Melap & Reception.\n\n` +
           `We look forward to celebrating with you!`;
 
@@ -1058,7 +1202,7 @@
       });
 
       /* --------------------------------------------------------------------- */
-      /* 8. SMOOTH SCROLL-REVEAL OBSERVER                                      */
+      /* 6. SMOOTH SCROLL-REVEAL OBSERVER                                      */
       /* --------------------------------------------------------------------- */
       const revealEls = document.querySelectorAll('.reveal');
       if ('IntersectionObserver' in window) {
@@ -1071,7 +1215,7 @@
               }
             });
           },
-          { threshold: 0.12 }
+          { threshold: 0.1 }
         );
         revealEls.forEach((el) => observer.observe(el));
       } else {
