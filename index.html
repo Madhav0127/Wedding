@@ -368,7 +368,7 @@
                 <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span id="ticketTotalCount">Total Invited: 2 Persons</span>
+                <span id="ticketTotalCount">Total Guests: 2 Persons</span>
               </div>
 
               <!-- Time & Fare Row -->
@@ -411,7 +411,7 @@
         </div>
       </div>
 
-      <!-- Subtle Preview Banner (Only shown when Host previews from the Builder) -->
+      <!-- Subtle Preview Banner (Only shown when Host previews from Main Webpage) -->
       <div id="hostPreviewBar" class="hidden mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-gold-light">
         <span>Previewing personal invite</span>
         <button id="reopenBuilderBtn" type="button" class="underline hover:text-ivory font-semibold">Edit Invite</button>
@@ -907,7 +907,6 @@
               <span>Hiren Gandhi</span>
               <a href="tel:+919624833000" class="text-gold-light hover:underline font-medium">+91 96248 33000</a>
             </li>
-            <!-- EDIT AMISHA'S PHONE NUMBER HERE -->
             <li class="flex items-center justify-between gap-2 bg-maroon-dark/55 px-4 py-2.5 rounded-2xl border border-gold/25">
               <span>Amisha Gandhi</span>
               <a href="tel:+918488851105" class="text-gold-light hover:underline font-medium">+91 84888 51105</a>
@@ -938,7 +937,7 @@
               <span>Copy WhatsApp Invite</span>
             </button>
 
-            <!-- Host-only button (hidden automatically when a guest opens a personal link) -->
+            <!-- Main-webpage-only button (removed automatically on personal invite links) -->
             <button
               type="button"
               id="openInviteBuilderBtn"
@@ -966,7 +965,7 @@
   </footer>
 
   <!-- ===================================================================== -->
-  <!-- 7. PERSONAL INVITE BUILDER MODAL (HOST TOOL)                          -->
+  <!-- 7. PERSONAL INVITE BUILDER MODAL (MAIN WEBPAGE ONLY)                  -->
   <!-- ===================================================================== -->
   <div
     id="inviteBuilderModal"
@@ -995,7 +994,7 @@
           Personal Invitation Builder
         </h2>
         <p class="text-xs sm:text-sm text-ink/70 mt-1">
-          Choose the guest name, total invited count, and exact ceremonies to generate a private link.
+          Choose the guest name, total invited count, and exact ceremonies to generate a private link and WhatsApp message.
         </p>
       </div>
 
@@ -1031,7 +1030,7 @@
         </div>
       </div>
 
-      <!-- Quick Picks (Matches Reference Image) -->
+      <!-- Quick Picks -->
       <div class="mb-6">
         <p class="text-[11px] uppercase tracking-[0.22em] text-ink/65 font-semibold mb-2.5">
           Quick Picks
@@ -1094,7 +1093,7 @@
       </div>
 
       <!-- Generated Personal Link -->
-      <div class="mb-6">
+      <div class="mb-4">
         <label for="builderOutputLink" class="block text-[11px] uppercase tracking-[0.22em] text-ink/65 font-semibold mb-1.5">
           Personal Link
         </label>
@@ -1106,26 +1105,46 @@
         />
       </div>
 
+      <!-- Generated WhatsApp Invite Preview -->
+      <div class="mb-6">
+        <label for="builderOutputWhatsApp" class="block text-[11px] uppercase tracking-[0.22em] text-ink/65 font-semibold mb-1.5">
+          WhatsApp Invite Message
+        </label>
+        <textarea
+          id="builderOutputWhatsApp"
+          rows="8"
+          readonly
+          class="w-full px-4 py-3 rounded-xl bg-cream/80 border border-gold/45 text-xs sm:text-sm text-ink font-normal leading-relaxed focus:outline-none resize-none"
+        ></textarea>
+      </div>
+
       <!-- Builder Action Buttons -->
-      <div class="flex flex-wrap items-center gap-3">
+      <div class="flex flex-wrap items-center gap-2.5">
         <button
           id="builderCopyLinkBtn"
           type="button"
-          class="flex-1 sm:flex-none px-5 py-2.5 rounded-full bg-maroon hover:bg-maroon-dark text-ivory text-xs sm:text-sm font-semibold transition-colors shadow-sm"
+          class="flex-1 sm:flex-none px-4 py-2.5 rounded-full bg-maroon hover:bg-maroon-dark text-ivory text-xs sm:text-sm font-semibold transition-colors shadow-sm"
         >
           Copy Personal Link
         </button>
         <button
           id="builderCopyWhatsAppBtn"
           type="button"
-          class="flex-1 sm:flex-none px-5 py-2.5 rounded-full bg-gold-bright hover:bg-gold text-maroon-dark text-xs sm:text-sm font-semibold transition-colors shadow-sm"
+          class="flex-1 sm:flex-none px-4 py-2.5 rounded-full bg-gold-bright hover:bg-gold text-maroon-dark text-xs sm:text-sm font-semibold transition-colors shadow-sm"
         >
-          Copy WhatsApp Message
+          Copy WhatsApp Invite
+        </button>
+        <button
+          id="builderSendWhatsAppBtn"
+          type="button"
+          class="flex-1 sm:flex-none px-4 py-2.5 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs sm:text-sm font-semibold transition-colors shadow-sm"
+        >
+          Send on WhatsApp
         </button>
         <button
           id="builderPreviewBtn"
           type="button"
-          class="w-full sm:w-auto px-5 py-2.5 rounded-full bg-ivory hover:bg-blush/80 text-maroon border border-maroon/45 text-xs sm:text-sm font-semibold transition-colors"
+          class="w-full sm:w-auto px-4 py-2.5 rounded-full bg-ivory hover:bg-blush/80 text-maroon border border-maroon/45 text-xs sm:text-sm font-semibold transition-colors"
         >
           Preview Invite
         </button>
@@ -1557,12 +1576,11 @@
             ? 'We would be honored by your gracious presence at this special celebration.'
             : `We look forward to celebrating these ${count} special occasions with you.`;
 
-        // 4. Hide Host Builder button from guests (show preview bar if host is previewing)
-        if (isHostPreview) {
+        // 4. Show preview bar only when host is previewing from the main webpage
+        if (isHostPreview && hostPreviewBar) {
           hostPreviewBar.classList.remove('hidden');
-        } else {
+        } else if (hostPreviewBar) {
           hostPreviewBar.classList.add('hidden');
-          if (openInviteBuilderBtn) openInviteBuilderBtn.classList.add('hidden');
         }
       }
 
@@ -1570,7 +1588,7 @@
         activeInviteState = null;
         personalPassSection.classList.add('hidden');
         heroGuestBadge.classList.add('hidden');
-        hostPreviewBar.classList.add('hidden');
+        if (hostPreviewBar) hostPreviewBar.classList.add('hidden');
         heroEventsBtnText.textContent = 'View 8 Ceremonies';
         eventsSectionTitle.textContent = 'Wedding Celebrations';
         eventsSectionSubtitle.textContent =
@@ -1585,8 +1603,10 @@
       const builderGuestName = document.getElementById('builderGuestName');
       const builderGuestCount = document.getElementById('builderGuestCount');
       const builderOutputLink = document.getElementById('builderOutputLink');
+      const builderOutputWhatsApp = document.getElementById('builderOutputWhatsApp');
       const builderCopyLinkBtn = document.getElementById('builderCopyLinkBtn');
       const builderCopyWhatsAppBtn = document.getElementById('builderCopyWhatsAppBtn');
+      const builderSendWhatsAppBtn = document.getElementById('builderSendWhatsAppBtn');
       const builderPreviewBtn = document.getElementById('builderPreviewBtn');
       const quickPickBtns = document.querySelectorAll('.quick-pick-btn');
       const builderEventCheckboxes = document.querySelectorAll('.builder-event-cb');
@@ -1611,6 +1631,34 @@
         });
       }
 
+      function buildWhatsAppMessage(guest, countVal, selectedIds, inviteUrl) {
+        const greeting = guest ? `Dear *${guest}*,` : `Dear Family & Friends,`;
+        const inviteLine =
+          countVal === 'family'
+            ? `Total Invited: *Family*`
+            : `Total Invited: *${countVal === '1' ? '1 Person' : countVal + ' Persons'}*`;
+
+        const eventLines = selectedIds
+          .map((id) => {
+            const ev = EVENTS_CATALOG[id];
+            return ev ? `- *${ev.name}* — ${ev.dateText} at ${ev.time}` : '';
+          })
+          .filter(Boolean)
+          .join('\n');
+
+        return (
+          `|| Shree Ganeshay Namah ||\n\n` +
+          `${greeting}\n` +
+          `With the blessings of Smt. Amisha & Shri Hirenkumar Gandhi, we warmly invite you to the wedding celebrations of *Vidhi & Shyam*!\n\n` +
+          `${inviteLine}\n\n` +
+          `*Your Invited Ceremonies:*\n` +
+          `${eventLines}\n\n` +
+          `View your personal invitation pass & directions here:\n` +
+          `${inviteUrl}\n\n` +
+          `We look forward to celebrating with you!`
+        );
+      }
+
       function buildPersonalUrl() {
         const baseUrl = window.location.href.split('?')[0].split('#')[0];
         const params = new URLSearchParams();
@@ -1628,43 +1676,22 @@
 
         const finalUrl = `${baseUrl}?${params.toString()}`;
         builderOutputLink.value = finalUrl;
+
+        if (builderOutputWhatsApp) {
+          builderOutputWhatsApp.value = buildWhatsAppMessage(guest, count, selectedEvents, finalUrl);
+        }
         return finalUrl;
       }
 
-      function buildWhatsAppMessage(guest, countVal, selectedIds, inviteUrl) {
-        const greeting = guest ? `Dear *${guest}*,` : `Dear Family & Friends,`;
-        const inviteLine =
-          countVal === 'family'
-            ? `Invitation for: *${guest ? guest + ' & Family' : 'You & Your Family'}*`
-            : `Total Invited: *${countVal === '1' ? '1 Person' : countVal + ' Persons'}*`;
-
-        const eventLines = selectedIds
-          .map((id) => {
-            const ev = EVENTS_CATALOG[id];
-            return ev ? `• *${ev.name}* — ${ev.dateText} at ${ev.time}` : '';
-          })
-          .filter(Boolean)
-          .join('\n');
-
-        return (
-          `|| Shree Ganeshay Namah ||\n\n` +
-          `${greeting}\n` +
-          `With the blessings of Smt. Amisha & Shri Hirenkumar Gandhi, we warmly invite you to the wedding celebrations of *Vidhi & Shyam*!\n\n` +
-          `${inviteLine}\n\n` +
-          `*Your Invited Ceremonies:*\n` +
-          `${eventLines}\n\n` +
-          `View your personal invitation pass & directions here:\n${inviteUrl}\n\n` +
-          `We look forward to celebrating with you!`
-        );
-      }
-
       function openInviteBuilder() {
+        if (!inviteBuilderModal) return;
         buildPersonalUrl();
         inviteBuilderModal.classList.remove('hidden');
         document.body.classList.add('overflow-hidden');
       }
 
       function closeInviteBuilder() {
+        if (!inviteBuilderModal) return;
         inviteBuilderModal.classList.add('hidden');
         document.body.classList.remove('overflow-hidden');
       }
@@ -1724,6 +1751,24 @@
         copyTextToClipboard(msg, 'Personal WhatsApp invite copied!');
       });
 
+      if (builderSendWhatsAppBtn) {
+        builderSendWhatsAppBtn.addEventListener('click', () => {
+          const selected = getSelectedBuilderEvents();
+          if (selected.length === 0) {
+            showToast('Please select at least one event.');
+            return;
+          }
+          const url = buildPersonalUrl();
+          const msg = buildWhatsAppMessage(
+            builderGuestName.value.trim(),
+            builderGuestCount.value,
+            selected,
+            url
+          );
+          window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+        });
+      }
+
       builderPreviewBtn.addEventListener('click', () => {
         const selected = getSelectedBuilderEvents();
         if (selected.length === 0) {
@@ -1745,7 +1790,7 @@
       reopenBuilderBtn.addEventListener('click', openInviteBuilder);
       exitPreviewBtn.addEventListener('click', resetToFullSite);
 
-     /* Read URL Parameters on Page Load */
+      /* Read URL Parameters on Page Load */
       (function initFromUrlParams() {
         const params = new URLSearchParams(window.location.search);
         const guestParam = params.get('guest');
@@ -1793,7 +1838,7 @@
           if (e.key === 'ArrowRight') showNextPhoto();
           return;
         }
-        if (!inviteBuilderModal.classList.contains('hidden') && e.key === 'Escape') {
+        if (inviteBuilderModal && !inviteBuilderModal.classList.contains('hidden') && e.key === 'Escape') {
           closeInviteBuilder();
         }
       });
