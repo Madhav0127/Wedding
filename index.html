@@ -67,6 +67,13 @@
       background-size: 24px 24px;
     }
 
+    /* Maroon dotted backdrop for Royal Ticket Pass */
+    .bg-maroon-dots {
+      background-color: #6E1423;
+      background-image: radial-gradient(rgba(230, 204, 139, 0.16) 1.5px, transparent 1.5px);
+      background-size: 22px 22px;
+    }
+
     /* Scroll reveal entrance */
     .reveal {
       opacity: 0;
@@ -95,6 +102,13 @@
     }
     .tick-animate {
       animation: tickPulse 1s ease-in-out infinite;
+    }
+
+    /* Quick-pick pill active state */
+    .quick-pick-btn.active {
+      background-color: #6E1423;
+      color: #FDF8F2;
+      border-color: #6E1423;
     }
   </style>
 </head>
@@ -208,6 +222,15 @@
           </p>
         </div>
 
+        <!-- Personalized Welcome Badge (Visible only on Personal Invite Links) -->
+        <div id="heroGuestBadge" class="hidden mb-4">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blush/90 border border-gold/50 text-maroon text-xs sm:text-sm font-medium">
+            <span class="text-gold-dark">✦</span>
+            <span id="heroGuestBadgeText">Specially invited for our celebration</span>
+            <span class="text-gold-dark">✦</span>
+          </span>
+        </div>
+
         <!-- Subtitle -->
         <p class="text-xs sm:text-sm uppercase tracking-[0.25em] text-ink/65 font-medium mb-2">
           Together with their families
@@ -255,28 +278,24 @@
 
           <!-- Ornate Gold-Bordered Countdown Cards -->
           <div id="countdownGrid" class="grid grid-cols-4 gap-2.5 sm:gap-4">
-            <!-- Days -->
             <div class="relative rounded-2xl bg-maroon text-ivory border-2 border-gold-bright/75 py-3.5 sm:py-4 px-1.5 shadow-md overflow-hidden">
               <div class="pointer-events-none absolute inset-1 rounded-xl border border-gold-light/25"></div>
               <div id="cdDays" class="font-cinzel text-2xl sm:text-4xl font-bold text-gold-light leading-none">00</div>
               <div class="text-[10px] sm:text-xs uppercase tracking-[0.18em] text-ivory/85 mt-1.5 font-medium">Days</div>
             </div>
 
-            <!-- Hours -->
             <div class="relative rounded-2xl bg-maroon text-ivory border-2 border-gold-bright/75 py-3.5 sm:py-4 px-1.5 shadow-md overflow-hidden">
               <div class="pointer-events-none absolute inset-1 rounded-xl border border-gold-light/25"></div>
               <div id="cdHours" class="font-cinzel text-2xl sm:text-4xl font-bold text-gold-light leading-none">00</div>
               <div class="text-[10px] sm:text-xs uppercase tracking-[0.18em] text-ivory/85 mt-1.5 font-medium">Hours</div>
             </div>
 
-            <!-- Minutes -->
             <div class="relative rounded-2xl bg-maroon text-ivory border-2 border-gold-bright/75 py-3.5 sm:py-4 px-1.5 shadow-md overflow-hidden">
               <div class="pointer-events-none absolute inset-1 rounded-xl border border-gold-light/25"></div>
               <div id="cdMinutes" class="font-cinzel text-2xl sm:text-4xl font-bold text-gold-light leading-none">00</div>
               <div class="text-[10px] sm:text-xs uppercase tracking-[0.18em] text-ivory/85 mt-1.5 font-medium">Minutes</div>
             </div>
 
-            <!-- Seconds -->
             <div class="relative rounded-2xl bg-maroon text-ivory border-2 border-gold-bright/75 py-3.5 sm:py-4 px-1.5 shadow-md overflow-hidden">
               <div class="pointer-events-none absolute inset-1 rounded-xl border border-gold-light/25"></div>
               <div id="cdSeconds" class="font-cinzel text-2xl sm:text-4xl font-bold text-gold-light leading-none tick-animate">00</div>
@@ -293,7 +312,7 @@
         <!-- Hero CTA Buttons -->
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5">
           <a href="#events" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-maroon text-ivory font-medium text-sm tracking-wide hover:bg-maroon-dark transition-all shadow-md hover:shadow-lg border border-gold/40 flex items-center justify-center gap-2">
-            <span>View 8 Ceremonies</span>
+            <span id="heroEventsBtnText">View 8 Ceremonies</span>
             <svg class="w-4 h-4 text-gold-light" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
@@ -305,6 +324,99 @@
             </svg>
           </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- 2B. PERSONALIZED ROYAL WEDDING TICKET PASS (SHOWN ON PERSONAL LINKS)  -->
+  <!-- ===================================================================== -->
+  <section id="personalPassSection" class="hidden py-12 sm:py-16 px-4 sm:px-6 bg-maroon-dots border-y border-gold/40">
+    <div class="max-w-3xl mx-auto">
+      <div class="relative bg-ivory text-ink rounded-2xl shadow-2xl overflow-hidden border border-gold/50">
+        <!-- Semicircular Ticket Side Notches -->
+        <div class="hidden sm:block absolute -left-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#6E1423]"></div>
+        <div class="hidden sm:block absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#6E1423]"></div>
+
+        <div class="flex flex-col sm:flex-row">
+          <!-- Left Date Stub -->
+          <div class="sm:w-36 shrink-0 flex sm:flex-col items-center justify-between sm:justify-center gap-3 px-6 py-5 sm:py-8 border-b sm:border-b-0 sm:border-r-2 border-dashed border-maroon/25 text-center bg-cream/40">
+            <div>
+              <div id="ticketDayNum" class="font-cinzel text-4xl sm:text-5xl font-bold text-maroon leading-none">25</div>
+              <div id="ticketMonth" class="font-cinzel text-sm font-semibold tracking-[0.22em] text-ink/80 mt-1 uppercase">FEB</div>
+              <div id="ticketWeekday" class="text-xs tracking-[0.2em] text-ink/55 uppercase mt-0.5">THU</div>
+            </div>
+            <div class="px-3 py-1 rounded border border-maroon/50 text-[10px] font-semibold tracking-[0.18em] text-maroon uppercase">
+              ROYAL PASS
+            </div>
+          </div>
+
+          <!-- Right Main Ticket Content -->
+          <div class="flex-1 p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <!-- Ticket Top Header -->
+              <div class="flex items-center justify-between gap-2 text-[11px] font-semibold tracking-[0.2em] text-ink/55 uppercase mb-2">
+                <span>Royal Wedding Express</span>
+                <span>NO. 250227</span>
+              </div>
+
+              <!-- Guest Name & Exact Total Count -->
+              <h2 id="ticketGuestHeading" class="font-cinzel text-2xl sm:text-3xl font-bold text-ink leading-snug">
+                Admit: Guest
+              </h2>
+              <div class="mt-2 inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blush/90 border border-gold/50 text-maroon text-xs sm:text-sm font-semibold">
+                <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span id="ticketTotalCount">Total Invited: 2 Persons</span>
+              </div>
+
+              <!-- Time & Fare Row -->
+              <div class="grid grid-cols-2 gap-4 mt-5">
+                <div>
+                  <p class="text-[10px] uppercase tracking-[0.2em] text-ink/55 font-semibold">Time</p>
+                  <p id="ticketTime" class="text-sm sm:text-base font-semibold text-ink mt-0.5">08:00 PM</p>
+                </div>
+                <div>
+                  <p class="text-[10px] uppercase tracking-[0.2em] text-ink/55 font-semibold">Fare</p>
+                  <p class="text-sm sm:text-base font-semibold text-ink mt-0.5">Your blessings</p>
+                </div>
+              </div>
+
+              <!-- Venue Row -->
+              <div class="mt-4">
+                <p id="ticketEventLabel" class="text-[10px] uppercase tracking-[0.2em] text-ink/55 font-semibold">Primary Venue</p>
+                <p id="ticketVenue" class="text-sm sm:text-base font-semibold text-ink mt-0.5">Singapuri Wadi - Garden, Rustampura, Surat, Gujarat</p>
+              </div>
+            </div>
+
+            <!-- Bottom Divider + Maps Button + Stamp -->
+            <div class="mt-6 pt-5 border-t border-dashed border-maroon/25 flex flex-wrap items-center justify-between gap-4">
+              <a
+                id="ticketMapsBtn"
+                href="https://maps.app.goo.gl/dKxJY98oy2hpKRMB7"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-maroon hover:bg-maroon-dark text-ivory text-xs sm:text-sm font-semibold transition-colors shadow-sm"
+              >
+                <span>Open in Maps</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+
+              <div class="px-3.5 py-1.5 rounded-md border-2 border-maroon/80 text-maroon font-cinzel text-xs font-bold tracking-[0.22em] uppercase -rotate-6 select-none">
+                PUNCHED
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Subtle Preview Banner (Only shown when Host previews from the Builder) -->
+      <div id="hostPreviewBar" class="hidden mt-4 flex flex-wrap items-center justify-center gap-3 text-xs text-gold-light">
+        <span>Previewing personal invite</span>
+        <button id="reopenBuilderBtn" type="button" class="underline hover:text-ivory font-semibold">Edit Invite</button>
+        <span>•</span>
+        <button id="exitPreviewBtn" type="button" class="underline hover:text-ivory font-semibold">Reset to Full Site</button>
       </div>
     </div>
   </section>
@@ -379,7 +491,7 @@
   </section>
 
   <!-- ===================================================================== -->
-  <!-- 4. ALL 8 TRADITIONAL GUJARATI CEREMONIES                              -->
+  <!-- 4. ALL 8 TRADITIONAL GUJARATI CEREMONIES (FILTERABLE PER INVITE)      -->
   <!-- ===================================================================== -->
   <section id="events" class="py-16 sm:py-24 px-4 sm:px-6 bg-ivory">
     <div class="max-w-6xl mx-auto">
@@ -388,23 +500,22 @@
         <p class="font-cinzel text-xs uppercase tracking-[0.28em] text-gold-dark font-semibold mb-2">
           Shubh Prasang
         </p>
-        <h2 class="font-cinzel text-3xl sm:text-4xl text-maroon font-semibold mb-4">
+        <h2 id="eventsSectionTitle" class="font-cinzel text-3xl sm:text-4xl text-maroon font-semibold mb-4">
           Wedding Celebrations
         </h2>
-        <p class="text-sm sm:text-base text-ink/70">
+        <p id="eventsSectionSubtitle" class="text-sm sm:text-base text-ink/70">
           Eight sacred and joyful gatherings filled with prayers, music, Gujarati traditions, and togetherness.
         </p>
       </div>
 
-      <!-- Events Cards Grid (8 Ceremonies — No Filter Tabs, No Day Badges, No Attire Pills) -->
+      <!-- Events Cards Grid -->
       <div id="eventsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <!-- 1. Pallu -->
-        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
+        <article data-event-id="pallu" class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="w-12 h-12 rounded-2xl bg-blush/85 border border-gold/35 flex items-center justify-center text-maroon shrink-0">
-                <!-- Traditional Drape / Ribbon SVG -->
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4 7c3-2 6-2 8 0s5 2 8 0v10c-3 2-6 2-8 0s-5-2-8 0V7z" />
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 7v10" />
@@ -426,7 +537,6 @@
                 <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 <span>02:00 PM</span>
               </div>
-              <!-- EDIT LOCATION HERE -->
               <div class="flex items-start gap-2.5">
                 <svg class="w-4 h-4 text-gold-dark shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                 <span>Khatodara Wadi, near Udhna Darwaja, Surat, Gujarat</span>
@@ -434,9 +544,7 @@
             </div>
           </div>
 
-          <!-- Card Footer: Clean Directions Button Only -->
           <div class="mt-5 pt-4 border-t border-gold/20 flex justify-end">
-            <!-- EDIT LOCATION HERE -->
             <a href="https://maps.app.goo.gl/E53RTcGYsF8XM2kG6" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blush/70 hover:bg-maroon text-maroon hover:text-ivory text-xs font-semibold border border-gold/30 transition-colors">
               <span>Directions</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
@@ -445,11 +553,10 @@
         </article>
 
         <!-- 2. Mosariya -->
-        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
+        <article data-event-id="mosariya" class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="w-12 h-12 rounded-2xl bg-blush/85 border border-gold/35 flex items-center justify-center text-maroon shrink-0">
-                <!-- Traditional Gifting / Mosalu SVG -->
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M20 12v7a2 2 0 01-2 2H6a2 2 0 01-2-2v-7m16 0H4m16 0l-1-4H5l-1 4m8-4v13m0-13c-1.5-2.5-5-2.5-5 0s3.5 0 5 0zm0 0c1.5-2.5 5-2.5 5 0s-3.5 0-5 0z" />
                 </svg>
@@ -470,7 +577,6 @@
                 <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 <span>08:00 PM</span>
               </div>
-              <!-- EDIT LOCATION HERE -->
               <div class="flex items-start gap-2.5">
                 <svg class="w-4 h-4 text-gold-dark shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                 <span>Khatodara Wadi, near Udhna Darwaja, Surat, Gujarat</span>
@@ -479,7 +585,6 @@
           </div>
 
           <div class="mt-5 pt-4 border-t border-gold/20 flex justify-end">
-            <!-- EDIT LOCATION HERE -->
             <a href="https://maps.app.goo.gl/E53RTcGYsF8XM2kG6" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blush/70 hover:bg-maroon text-maroon hover:text-ivory text-xs font-semibold border border-gold/30 transition-colors">
               <span>Directions</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
@@ -488,11 +593,10 @@
         </article>
 
         <!-- 3. Katha -->
-        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
+        <article data-event-id="katha" class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="w-12 h-12 rounded-2xl bg-blush/85 border border-gold/35 flex items-center justify-center text-maroon shrink-0">
-                <!-- Sacred Diya / Flame SVG -->
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c1.8 2.4 2.5 4.2 2.5 5.8a2.5 2.5 0 11-5 0C9.5 7.2 10.2 5.4 12 3z" />
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4 14c0 3.5 3.6 6 8 6s8-2.5 8-6H4z" />
@@ -515,7 +619,6 @@
                 <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 <span>04:00 PM</span>
               </div>
-              <!-- EDIT LOCATION HERE -->
               <div class="flex items-start gap-2.5">
                 <svg class="w-4 h-4 text-gold-dark shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                 <span>53/B, Swami Gunatit nagar society, Near Rupali canal, Bhatar Road, Surat</span>
@@ -524,7 +627,6 @@
           </div>
 
           <div class="mt-5 pt-4 border-t border-gold/20 flex justify-end">
-            <!-- EDIT LOCATION HERE -->
             <a href="https://maps.app.goo.gl/2AXSA8jfEuqKe4366" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blush/70 hover:bg-maroon text-maroon hover:text-ivory text-xs font-semibold border border-gold/30 transition-colors">
               <span>Directions</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
@@ -533,11 +635,10 @@
         </article>
 
         <!-- 4. Mehndi -->
-        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
+        <article data-event-id="mehndi" class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="w-12 h-12 rounded-2xl bg-blush/85 border border-gold/35 flex items-center justify-center text-maroon shrink-0">
-                <!-- Botanical Henna Leaf SVG -->
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 21C12 13 6 9 4 5c5 0 9 3 10 8m-2 8c0-7 5-11 8-14-4 0-7 2-8 6" />
                   <circle cx="12" cy="7" r="1.5" fill="currentColor" />
@@ -559,7 +660,6 @@
                 <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 <span>10:00 AM</span>
               </div>
-              <!-- EDIT LOCATION HERE -->
               <div class="flex items-start gap-2.5">
                 <svg class="w-4 h-4 text-gold-dark shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                 <span>53/B, Swami Gunatit nagar society, Near Rupali canal, Bhatar Road, Surat</span>
@@ -568,7 +668,6 @@
           </div>
 
           <div class="mt-5 pt-4 border-t border-gold/20 flex justify-end">
-            <!-- EDIT LOCATION HERE -->
             <a href="https://maps.app.goo.gl/2AXSA8jfEuqKe4366" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blush/70 hover:bg-maroon text-maroon hover:text-ivory text-xs font-semibold border border-gold/30 transition-colors">
               <span>Directions</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
@@ -577,11 +676,10 @@
         </article>
 
         <!-- 5. Haldi -->
-        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
+        <article data-event-id="haldi" class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="w-12 h-12 rounded-2xl bg-blush/85 border border-gold/35 flex items-center justify-center text-maroon shrink-0">
-                <!-- Radiant Sun / Haldi Blossom SVG -->
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="4" />
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 2v3m0 14v3M4.93 4.93l2.12 2.12m9.9 9.9l2.12 2.12M2 12h3m14 0h3M4.93 19.07l2.12-2.12m9.9-9.9l2.12-2.12" />
@@ -603,7 +701,6 @@
                 <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 <span>09:00 AM</span>
               </div>
-              <!-- EDIT LOCATION HERE -->
               <div class="flex items-start gap-2.5">
                 <svg class="w-4 h-4 text-gold-dark shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                 <span>53/B, Swami Gunatit nagar society, Near Rupali canal, Bhatar Road, Surat</span>
@@ -612,7 +709,6 @@
           </div>
 
           <div class="mt-5 pt-4 border-t border-gold/20 flex justify-end">
-            <!-- EDIT LOCATION HERE -->
             <a href="https://maps.app.goo.gl/2AXSA8jfEuqKe4366" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blush/70 hover:bg-maroon text-maroon hover:text-ivory text-xs font-semibold border border-gold/30 transition-colors">
               <span>Directions</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
@@ -621,11 +717,10 @@
         </article>
 
         <!-- 6. Gruhshanti -->
-        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
+        <article data-event-id="gruhshanti" class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="w-12 h-12 rounded-2xl bg-blush/85 border border-gold/35 flex items-center justify-center text-maroon shrink-0">
-                <!-- Sacred Kalash / Havan SVG -->
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 4c-1.5 2-2 3.5-2 5h4c0-1.5-.5-3-2-5z" />
                   <path stroke-linecap="round" stroke-linejoin="round" d="M7 10h10l-1.2 8.5A2 2 0 0113.8 20h-3.6a2 2 0 01-2-1.5L7 10z" />
@@ -648,16 +743,14 @@
                 <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 <span>10:30 AM</span>
               </div>
-              <!-- EDIT LOCATION HERE -->
               <div class="flex items-start gap-2.5">
                 <svg class="w-4 h-4 text-gold-dark shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                <span>Singapuri Wadi - Garden , Rustampura, Surat, Gujarat</span>
+                <span>Singapuri Wadi - Garden, Rustampura, Surat, Gujarat</span>
               </div>
             </div>
           </div>
 
           <div class="mt-5 pt-4 border-t border-gold/20 flex justify-end">
-            <!-- EDIT LOCATION HERE -->
             <a href="https://maps.app.goo.gl/dKxJY98oy2hpKRMB7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blush/70 hover:bg-maroon text-maroon hover:text-ivory text-xs font-semibold border border-gold/30 transition-colors">
               <span>Directions</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
@@ -666,11 +759,10 @@
         </article>
 
         <!-- 7. Wedding / Hast Melap (Highlighted Royal Card) -->
-        <article class="event-card reveal group relative bg-gradient-to-b from-ivory to-blush-soft rounded-3xl border-2 border-gold-bright/75 shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
+        <article data-event-id="wedding" class="event-card reveal group relative bg-gradient-to-b from-ivory to-blush-soft rounded-3xl border-2 border-gold-bright/75 shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="w-12 h-12 rounded-2xl bg-maroon text-gold-light border border-gold-bright flex items-center justify-center shrink-0 shadow-sm">
-                <!-- Sacred Rings / Hast Melap SVG -->
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
                   <circle cx="9.5" cy="13.5" r="5" />
                   <circle cx="14.5" cy="13.5" r="5" />
@@ -693,7 +785,6 @@
                 <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 <span>08:00 PM</span>
               </div>
-              <!-- EDIT LOCATION HERE -->
               <div class="flex items-start gap-2.5">
                 <svg class="w-4 h-4 text-gold-dark shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                 <span>Singapuri Wadi - Garden, Rustampura, Surat, Gujarat</span>
@@ -702,7 +793,6 @@
           </div>
 
           <div class="mt-5 pt-4 border-t border-gold/25 flex justify-end">
-            <!-- EDIT LOCATION HERE -->
             <a href="https://maps.app.goo.gl/dKxJY98oy2hpKRMB7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-maroon text-ivory hover:bg-maroon-dark text-xs font-semibold border border-gold-bright/60 shadow-xs transition-colors">
               <span>Directions</span>
               <svg class="w-3.5 h-3.5 text-gold-light" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
@@ -711,11 +801,10 @@
         </article>
 
         <!-- 8. Reception -->
-        <article class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
+        <article data-event-id="reception" class="event-card reveal group bg-ivory rounded-3xl border border-gold/40 shadow-card hover:shadow-royal transition-all duration-300 p-6 flex flex-col justify-between">
           <div>
             <div class="flex items-start justify-between gap-4 mb-4">
               <div class="w-12 h-12 rounded-2xl bg-blush/85 border border-gold/35 flex items-center justify-center text-maroon shrink-0">
-                <!-- Celebration Sparkles SVG -->
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l1.8 4.8L18.5 9.5l-4.7 1.7L12 16l-1.8-4.8L5.5 9.5l4.7-1.7L12 3z" />
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9L19 15z" />
@@ -737,7 +826,6 @@
                 <svg class="w-4 h-4 text-gold-dark shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 <span>08:00 PM</span>
               </div>
-              <!-- EDIT LOCATION HERE -->
               <div class="flex items-start gap-2.5">
                 <svg class="w-4 h-4 text-gold-dark shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                 <span>Singapuri Wadi - Garden, Rustampura, Surat, Gujarat</span>
@@ -746,7 +834,6 @@
           </div>
 
           <div class="mt-5 pt-4 border-t border-gold/20 flex justify-end">
-            <!-- EDIT LOCATION HERE -->
             <a href="https://maps.app.goo.gl/dKxJY98oy2hpKRMB7" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-blush/70 hover:bg-maroon text-maroon hover:text-ivory text-xs font-semibold border border-gold/30 transition-colors">
               <span>Directions</span>
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
@@ -811,7 +898,7 @@
           </a>
         </div>
 
-        <!-- Column 2: Family Contacts -->
+        <!-- Column 2: Family Contacts (1. Hiren, 2. Amisha, 3. Madhav) -->
         <div class="space-y-3">
           <p class="font-cinzel text-xs uppercase tracking-[0.25em] text-gold-light">With Love &amp; Warmth</p>
           <h3 class="font-cinzel text-xl font-semibold text-ivory">Family Contacts</h3>
@@ -820,6 +907,7 @@
               <span>Hiren Gandhi</span>
               <a href="tel:+919624833000" class="text-gold-light hover:underline font-medium">+91 96248 33000</a>
             </li>
+            <!-- EDIT AMISHA'S PHONE NUMBER HERE -->
             <li class="flex items-center justify-between gap-2 bg-maroon-dark/55 px-4 py-2.5 rounded-2xl border border-gold/25">
               <span>Amisha Gandhi</span>
               <a href="tel:+918488851105" class="text-gold-light hover:underline font-medium">+91 84888 51105</a>
@@ -831,23 +919,37 @@
           </ul>
         </div>
 
-        <!-- Column 3: WhatsApp Share Text -->
+        <!-- Column 3: WhatsApp Share & Host Personal Invite Builder -->
         <div class="space-y-3">
           <p class="font-cinzel text-xs uppercase tracking-[0.25em] text-gold-light">Share Invitation</p>
           <h3 class="font-cinzel text-xl font-semibold text-ivory">Spread the Joy</h3>
           <p class="text-sm text-ivory/80 leading-relaxed">
-            Copy a ready-to-send WhatsApp invitation message with the wedding date and all 8 ceremonies.
+            Copy a ready-to-send WhatsApp invitation message or create a custom personal invite link for each guest.
           </p>
-          <button
-            type="button"
-            id="copyInviteBtn"
-            class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gold-bright text-maroon-dark font-semibold text-xs tracking-wide hover:bg-gold-light transition-colors shadow-sm"
-          >
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-            </svg>
-            <span>Copy WhatsApp Invite</span>
-          </button>
+          <div class="flex flex-wrap gap-2.5 pt-1">
+            <button
+              type="button"
+              id="copyInviteBtn"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gold-bright text-maroon-dark font-semibold text-xs tracking-wide hover:bg-gold-light transition-colors shadow-sm"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              <span>Copy WhatsApp Invite</span>
+            </button>
+
+            <!-- Host-only button (hidden automatically when a guest opens a personal link) -->
+            <button
+              type="button"
+              id="openInviteBuilderBtn"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ivory/10 hover:bg-ivory/20 text-gold-light border border-gold/45 font-semibold text-xs tracking-wide transition-colors"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+              <span>Create Personal Invite</span>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -864,7 +966,175 @@
   </footer>
 
   <!-- ===================================================================== -->
-  <!-- 7. FULL-SCREEN LIGHTBOX MODAL FOR PHOTO GALLERY                       -->
+  <!-- 7. PERSONAL INVITE BUILDER MODAL (HOST TOOL)                          -->
+  <!-- ===================================================================== -->
+  <div
+    id="inviteBuilderModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="builderModalTitle"
+    class="fixed inset-0 z-50 hidden bg-ink/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+  >
+    <div class="relative w-full max-w-2xl bg-ivory rounded-3xl border-2 border-gold/60 shadow-2xl p-6 sm:p-8 my-8 max-h-[90vh] overflow-y-auto">
+      <!-- Close Button -->
+      <button
+        id="closeInviteBuilderBtn"
+        type="button"
+        aria-label="Close invite builder"
+        class="absolute top-4 right-4 p-2 rounded-full text-maroon hover:bg-blush/80 transition-colors"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="mb-6">
+        <p class="font-cinzel text-[11px] uppercase tracking-[0.25em] text-gold-dark font-semibold">Host Tool</p>
+        <h2 id="builderModalTitle" class="font-cinzel text-2xl sm:text-3xl text-maroon font-semibold mt-1">
+          Personal Invitation Builder
+        </h2>
+        <p class="text-xs sm:text-sm text-ink/70 mt-1">
+          Choose the guest name, total invited count, and exact ceremonies to generate a private link.
+        </p>
+      </div>
+
+      <!-- Guest Name & Total Count Row -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        <div>
+          <label for="builderGuestName" class="block text-[11px] uppercase tracking-[0.2em] text-ink/65 font-semibold mb-1.5">
+            Guest Name
+          </label>
+          <input
+            id="builderGuestName"
+            type="text"
+            placeholder="e.g., Hamza"
+            class="w-full px-4 py-2.5 rounded-xl bg-white border border-gold/45 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-maroon/40 focus:border-maroon"
+          />
+        </div>
+
+        <div>
+          <label for="builderGuestCount" class="block text-[11px] uppercase tracking-[0.2em] text-ink/65 font-semibold mb-1.5">
+            Total Persons Invited
+          </label>
+          <select
+            id="builderGuestCount"
+            class="w-full px-4 py-2.5 rounded-xl bg-white border border-gold/45 text-sm text-ink focus:outline-none focus:ring-2 focus:ring-maroon/40 focus:border-maroon"
+          >
+            <option value="1">1 Person</option>
+            <option value="2" selected>2 Persons</option>
+            <option value="3">3 Persons</option>
+            <option value="4">4 Persons</option>
+            <option value="5">5 Persons</option>
+            <option value="family">Family</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Quick Picks (Matches Reference Image) -->
+      <div class="mb-6">
+        <p class="text-[11px] uppercase tracking-[0.22em] text-ink/65 font-semibold mb-2.5">
+          Quick Picks
+        </p>
+        <div class="flex flex-wrap gap-2.5">
+          <button type="button" data-preset="all" class="quick-pick-btn active px-4 py-2 rounded-full border border-maroon/70 text-maroon text-xs sm:text-sm font-semibold hover:bg-maroon/10 transition-colors">
+            All functions
+          </button>
+          <button type="button" data-preset="gruhshanti_wedding" class="quick-pick-btn px-4 py-2 rounded-full border border-maroon/70 text-maroon text-xs sm:text-sm font-semibold hover:bg-maroon/10 transition-colors">
+            Gruhshanti + Wedding
+          </button>
+          <button type="button" data-preset="wedding_reception" class="quick-pick-btn px-4 py-2 rounded-full border border-maroon/70 text-maroon text-xs sm:text-sm font-semibold hover:bg-maroon/10 transition-colors">
+            Wedding + Reception
+          </button>
+          <button type="button" data-preset="reception_only" class="quick-pick-btn px-4 py-2 rounded-full border border-maroon/70 text-maroon text-xs sm:text-sm font-semibold hover:bg-maroon/10 transition-colors">
+            Reception only
+          </button>
+        </div>
+      </div>
+
+      <!-- Individual Event Checkboxes -->
+      <div class="mb-6">
+        <p class="text-[11px] uppercase tracking-[0.22em] text-ink/65 font-semibold mb-2.5">
+          Select Events Individually
+        </p>
+        <div id="builderEventCheckboxes" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <label class="flex items-center gap-2.5 p-3 rounded-xl bg-cream/65 border border-gold/35 cursor-pointer hover:border-maroon/50 transition-colors">
+            <input type="checkbox" value="pallu" checked class="builder-event-cb w-4 h-4 accent-[#6E1423]" />
+            <span class="text-sm font-medium text-ink">Pallu <span class="text-xs text-ink/60">(23 Jan, 2:00 PM)</span></span>
+          </label>
+          <label class="flex items-center gap-2.5 p-3 rounded-xl bg-cream/65 border border-gold/35 cursor-pointer hover:border-maroon/50 transition-colors">
+            <input type="checkbox" value="mosariya" checked class="builder-event-cb w-4 h-4 accent-[#6E1423]" />
+            <span class="text-sm font-medium text-ink">Mosariya <span class="text-xs text-ink/60">(23 Jan, 8:00 PM)</span></span>
+          </label>
+          <label class="flex items-center gap-2.5 p-3 rounded-xl bg-cream/65 border border-gold/35 cursor-pointer hover:border-maroon/50 transition-colors">
+            <input type="checkbox" value="katha" checked class="builder-event-cb w-4 h-4 accent-[#6E1423]" />
+            <span class="text-sm font-medium text-ink">Katha <span class="text-xs text-ink/60">(21 Feb, 4:00 PM)</span></span>
+          </label>
+          <label class="flex items-center gap-2.5 p-3 rounded-xl bg-cream/65 border border-gold/35 cursor-pointer hover:border-maroon/50 transition-colors">
+            <input type="checkbox" value="mehndi" checked class="builder-event-cb w-4 h-4 accent-[#6E1423]" />
+            <span class="text-sm font-medium text-ink">Mehndi <span class="text-xs text-ink/60">(23 Feb, 10:00 AM)</span></span>
+          </label>
+          <label class="flex items-center gap-2.5 p-3 rounded-xl bg-cream/65 border border-gold/35 cursor-pointer hover:border-maroon/50 transition-colors">
+            <input type="checkbox" value="haldi" checked class="builder-event-cb w-4 h-4 accent-[#6E1423]" />
+            <span class="text-sm font-medium text-ink">Haldi <span class="text-xs text-ink/60">(25 Feb, 9:00 AM)</span></span>
+          </label>
+          <label class="flex items-center gap-2.5 p-3 rounded-xl bg-cream/65 border border-gold/35 cursor-pointer hover:border-maroon/50 transition-colors">
+            <input type="checkbox" value="gruhshanti" checked class="builder-event-cb w-4 h-4 accent-[#6E1423]" />
+            <span class="text-sm font-medium text-ink">Gruhshanti <span class="text-xs text-ink/60">(25 Feb, 10:30 AM)</span></span>
+          </label>
+          <label class="flex items-center gap-2.5 p-3 rounded-xl bg-cream/65 border border-gold/35 cursor-pointer hover:border-maroon/50 transition-colors">
+            <input type="checkbox" value="wedding" checked class="builder-event-cb w-4 h-4 accent-[#6E1423]" />
+            <span class="text-sm font-medium text-ink">Wedding / Hast Melap <span class="text-xs text-ink/60">(25 Feb, 8:00 PM)</span></span>
+          </label>
+          <label class="flex items-center gap-2.5 p-3 rounded-xl bg-cream/65 border border-gold/35 cursor-pointer hover:border-maroon/50 transition-colors">
+            <input type="checkbox" value="reception" checked class="builder-event-cb w-4 h-4 accent-[#6E1423]" />
+            <span class="text-sm font-medium text-ink">Reception <span class="text-xs text-ink/60">(27 Feb, 8:00 PM)</span></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Generated Personal Link -->
+      <div class="mb-6">
+        <label for="builderOutputLink" class="block text-[11px] uppercase tracking-[0.22em] text-ink/65 font-semibold mb-1.5">
+          Personal Link
+        </label>
+        <input
+          id="builderOutputLink"
+          type="text"
+          readonly
+          class="w-full px-4 py-2.5 rounded-xl bg-cream/80 border border-gold/45 text-xs sm:text-sm text-maroon font-medium focus:outline-none"
+        />
+      </div>
+
+      <!-- Builder Action Buttons -->
+      <div class="flex flex-wrap items-center gap-3">
+        <button
+          id="builderCopyLinkBtn"
+          type="button"
+          class="flex-1 sm:flex-none px-5 py-2.5 rounded-full bg-maroon hover:bg-maroon-dark text-ivory text-xs sm:text-sm font-semibold transition-colors shadow-sm"
+        >
+          Copy Personal Link
+        </button>
+        <button
+          id="builderCopyWhatsAppBtn"
+          type="button"
+          class="flex-1 sm:flex-none px-5 py-2.5 rounded-full bg-gold-bright hover:bg-gold text-maroon-dark text-xs sm:text-sm font-semibold transition-colors shadow-sm"
+        >
+          Copy WhatsApp Message
+        </button>
+        <button
+          id="builderPreviewBtn"
+          type="button"
+          class="w-full sm:w-auto px-5 py-2.5 rounded-full bg-ivory hover:bg-blush/80 text-maroon border border-maroon/45 text-xs sm:text-sm font-semibold transition-colors"
+        >
+          Preview Invite
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 8. FULL-SCREEN LIGHTBOX MODAL FOR PHOTO GALLERY                       -->
   <!-- ===================================================================== -->
   <div
     id="lightboxModal"
@@ -873,7 +1143,6 @@
     aria-label="Photo lightbox viewer"
     class="fixed inset-0 z-50 hidden bg-ink/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
   >
-    <!-- Close Button -->
     <button
       id="lightboxClose"
       type="button"
@@ -885,7 +1154,6 @@
       </svg>
     </button>
 
-    <!-- Previous Button -->
     <button
       id="lightboxPrev"
       type="button"
@@ -897,7 +1165,6 @@
       </svg>
     </button>
 
-    <!-- Active Lightbox Image & Caption -->
     <figure class="max-w-4xl w-full flex flex-col items-center">
       <div class="relative rounded-3xl overflow-hidden border-2 border-gold-bright/70 shadow-2xl bg-maroon-dark/40">
         <img
@@ -910,7 +1177,6 @@
       <figcaption id="lightboxCaption" class="mt-4 font-cinzel text-sm sm:text-base tracking-wider text-gold-light text-center"></figcaption>
     </figure>
 
-    <!-- Next Button -->
     <button
       id="lightboxNext"
       type="button"
@@ -923,7 +1189,7 @@
     </button>
   </div>
 
-  <!-- Toast Notification Box (No alert/confirm) -->
+  <!-- Toast Notification Box -->
   <div
     id="toastMessage"
     role="status"
@@ -939,12 +1205,106 @@
       'use strict';
 
       /* --------------------------------------------------------------------- */
-      /* 1. GOOGLE DRIVE PHOTO CONFIGURATION (PASTE YOUR PUBLIC SHARE LINKS)   */
-      /*    Set each file in Google Drive to "Anyone with the link" (Viewer).  */
+      /* 1. EVENT METADATA CATALOG (USED FOR PERSONAL TICKETS & WHATSAPP)      */
+      /* --------------------------------------------------------------------- */
+      const EVENTS_CATALOG = {
+        pallu: {
+          name: 'Pallu',
+          dateText: 'Saturday, 23 Jan 2027',
+          dayNum: '23',
+          month: 'JAN',
+          weekday: 'SAT',
+          time: '02:00 PM',
+          venue: 'Khatodara Wadi, near Udhna Darwaja, Surat, Gujarat',
+          mapsUrl: 'https://maps.app.goo.gl/E53RTcGYsF8XM2kG6',
+        },
+        mosariya: {
+          name: 'Mosariya',
+          dateText: 'Saturday, 23 Jan 2027',
+          dayNum: '23',
+          month: 'JAN',
+          weekday: 'SAT',
+          time: '08:00 PM',
+          venue: 'Khatodara Wadi, near Udhna Darwaja, Surat, Gujarat',
+          mapsUrl: 'https://maps.app.goo.gl/E53RTcGYsF8XM2kG6',
+        },
+        katha: {
+          name: 'Katha',
+          dateText: 'Sunday, 21 Feb 2027',
+          dayNum: '21',
+          month: 'FEB',
+          weekday: 'SUN',
+          time: '04:00 PM',
+          venue: '53/B, Swami Gunatit nagar society, Near Rupali canal, Bhatar Road, Surat',
+          mapsUrl: 'https://maps.app.goo.gl/2AXSA8jfEuqKe4366',
+        },
+        mehndi: {
+          name: 'Mehndi',
+          dateText: 'Tuesday, 23 Feb 2027',
+          dayNum: '23',
+          month: 'FEB',
+          weekday: 'TUE',
+          time: '10:00 AM',
+          venue: '53/B, Swami Gunatit nagar society, Near Rupali canal, Bhatar Road, Surat',
+          mapsUrl: 'https://maps.app.goo.gl/2AXSA8jfEuqKe4366',
+        },
+        haldi: {
+          name: 'Haldi',
+          dateText: 'Thursday, 25 Feb 2027',
+          dayNum: '25',
+          month: 'FEB',
+          weekday: 'THU',
+          time: '09:00 AM',
+          venue: '53/B, Swami Gunatit nagar society, Near Rupali canal, Bhatar Road, Surat',
+          mapsUrl: 'https://maps.app.goo.gl/2AXSA8jfEuqKe4366',
+        },
+        gruhshanti: {
+          name: 'Gruhshanti',
+          dateText: 'Thursday, 25 Feb 2027',
+          dayNum: '25',
+          month: 'FEB',
+          weekday: 'THU',
+          time: '10:30 AM',
+          venue: 'Singapuri Wadi - Garden, Rustampura, Surat, Gujarat',
+          mapsUrl: 'https://maps.app.goo.gl/dKxJY98oy2hpKRMB7',
+        },
+        wedding: {
+          name: 'Wedding / Hast Melap',
+          dateText: 'Thursday, 25 Feb 2027',
+          dayNum: '25',
+          month: 'FEB',
+          weekday: 'THU',
+          time: '08:00 PM',
+          venue: 'Singapuri Wadi - Garden, Rustampura, Surat, Gujarat',
+          mapsUrl: 'https://maps.app.goo.gl/dKxJY98oy2hpKRMB7',
+        },
+        reception: {
+          name: 'Reception',
+          dateText: 'Saturday, 27 Feb 2027',
+          dayNum: '27',
+          month: 'FEB',
+          weekday: 'SAT',
+          time: '08:00 PM',
+          venue: 'Singapuri Wadi - Garden, Rustampura, Surat, Gujarat',
+          mapsUrl: 'https://maps.app.goo.gl/dKxJY98oy2hpKRMB7',
+        },
+      };
+
+      const ALL_EVENT_IDS = Object.keys(EVENTS_CATALOG);
+
+      const QUICK_PRESETS = {
+        all: [...ALL_EVENT_IDS],
+        gruhshanti_wedding: ['gruhshanti', 'wedding'],
+        wedding_reception: ['wedding', 'reception'],
+        reception_only: ['reception'],
+      };
+
+      /* --------------------------------------------------------------------- */
+      /* 2. GOOGLE DRIVE PHOTO CONFIGURATION (PASTE YOUR PUBLIC SHARE LINKS)   */
       /* --------------------------------------------------------------------- */
       const GOOGLE_DRIVE_IMAGES = {
-        navbarLogo: '', // PASTE YOUR GOOGLE DRIVE LOGO LINK HERE (e.g., Untitled design_20261121_121640_0000.jpg)
-        couplePortrait: '', // Paste Google Drive link for Couple Portrait here
+        navbarLogo: '',
+        couplePortrait: '',
         gallery: [
           { url: '', caption: 'Vidhi & Shyam — Forever Begins' },
           { url: '', caption: 'Joyful Engagement Moments' },
@@ -955,10 +1315,6 @@
         ],
       };
 
-      /**
-       * Converts a standard Google Drive share link into a direct web-viewable image URL.
-       * Supports /file/d/<ID>/view, ?id=<ID>, or direct HTTPS image URLs.
-       */
       function toDriveImageUrl(rawUrl) {
         if (!rawUrl || !rawUrl.trim()) return '';
         const trimmed = rawUrl.trim();
@@ -977,7 +1333,7 @@
       }
 
       /* --------------------------------------------------------------------- */
-      /* 2. POPULATE NAVBAR LOGO, COUPLE PORTRAIT & 6-PHOTO GALLERY            */
+      /* 3. POPULATE NAVBAR LOGO, COUPLE PORTRAIT & 6-PHOTO GALLERY            */
       /* --------------------------------------------------------------------- */
       const navbarLogoImg = document.getElementById('navbarLogoImg');
       const navbarLogoFallback = document.getElementById('navbarLogoFallback');
@@ -1094,15 +1450,356 @@
         if (e.target === lightboxModal) closeLightbox();
       });
 
+      /* --------------------------------------------------------------------- */
+      /* 4. PERSONALIZED INVITE RENDERER & HOST BUILDER                        */
+      /* --------------------------------------------------------------------- */
+      const personalPassSection = document.getElementById('personalPassSection');
+      const heroGuestBadge = document.getElementById('heroGuestBadge');
+      const heroGuestBadgeText = document.getElementById('heroGuestBadgeText');
+      const heroEventsBtnText = document.getElementById('heroEventsBtnText');
+      const eventsSectionTitle = document.getElementById('eventsSectionTitle');
+      const eventsSectionSubtitle = document.getElementById('eventsSectionSubtitle');
+      const eventCards = document.querySelectorAll('.event-card[data-event-id]');
+
+      const ticketDayNum = document.getElementById('ticketDayNum');
+      const ticketMonth = document.getElementById('ticketMonth');
+      const ticketWeekday = document.getElementById('ticketWeekday');
+      const ticketGuestHeading = document.getElementById('ticketGuestHeading');
+      const ticketTotalCount = document.getElementById('ticketTotalCount');
+      const ticketTime = document.getElementById('ticketTime');
+      const ticketEventLabel = document.getElementById('ticketEventLabel');
+      const ticketVenue = document.getElementById('ticketVenue');
+      const ticketMapsBtn = document.getElementById('ticketMapsBtn');
+      const hostPreviewBar = document.getElementById('hostPreviewBar');
+      const openInviteBuilderBtn = document.getElementById('openInviteBuilderBtn');
+
+      let activeInviteState = null;
+
+      function formatGuestCountLabel(countVal) {
+        if (countVal === 'family') return 'With Family';
+        const num = parseInt(countVal, 10);
+        if (num === 1) return 'Total Guests: 1 Person';
+        if (num >= 2 && num <= 5) return `Total Guests: ${num} Persons`;
+        return 'Total Guests: 2 Persons';
+      }
+
+      function formatGuestHeading(guestName, countVal) {
+        const cleanName = (guestName || '').trim() || 'Dear Guest';
+        if (countVal === 'family') {
+          return `Admit: ${cleanName} & Family`;
+        }
+        return `Admit: ${cleanName}`;
+      }
+
+      function pickPrimaryTicketEvent(selectedIds) {
+        if (selectedIds.includes('wedding')) return EVENTS_CATALOG.wedding;
+        if (selectedIds.includes('reception')) return EVENTS_CATALOG.reception;
+        if (selectedIds.includes('gruhshanti')) return EVENTS_CATALOG.gruhshanti;
+        return EVENTS_CATALOG[selectedIds[0]] || EVENTS_CATALOG.wedding;
+      }
+
+      function applyPersonalizedInvite(config, isHostPreview) {
+        const validEvents = (config.events || []).filter((id) => Boolean(EVENTS_CATALOG[id]));
+        const selectedEvents = validEvents.length > 0 ? validEvents : [...ALL_EVENT_IDS];
+        const guestName = (config.guest || '').trim();
+        const countVal = config.count || '2';
+
+        activeInviteState = {
+          guest: guestName,
+          count: countVal,
+          events: selectedEvents,
+        };
+
+        // 1. Show Personal Royal Ticket Pass
+        const primaryEvent = pickPrimaryTicketEvent(selectedEvents);
+        ticketDayNum.textContent = primaryEvent.dayNum;
+        ticketMonth.textContent = primaryEvent.month;
+        ticketWeekday.textContent = primaryEvent.weekday;
+        ticketGuestHeading.textContent = formatGuestHeading(guestName, countVal);
+        ticketTotalCount.textContent = formatGuestCountLabel(countVal);
+        ticketTime.textContent = primaryEvent.time;
+        ticketEventLabel.textContent = `${primaryEvent.name} Venue`;
+        ticketVenue.textContent = primaryEvent.venue;
+        ticketMapsBtn.href = primaryEvent.mapsUrl;
+        personalPassSection.classList.remove('hidden');
+
+        // 2. Hero Welcome Badge & Button Text
+        if (guestName) {
+          heroGuestBadgeText.textContent =
+            countVal === 'family'
+              ? `Warmly inviting ${guestName} & Family`
+              : `Warmly inviting ${guestName} (${formatGuestCountLabel(countVal)})`;
+          heroGuestBadge.classList.remove('hidden');
+        } else {
+          heroGuestBadge.classList.add('hidden');
+        }
+
+        const count = selectedEvents.length;
+        heroEventsBtnText.textContent =
+          count === 1 ? 'View Your Ceremony' : `View Your ${count} Ceremonies`;
+
+        // 3. Filter Event Cards
+        eventCards.forEach((card) => {
+          const eventId = card.getAttribute('data-event-id');
+          if (selectedEvents.includes(eventId)) {
+            card.classList.remove('hidden');
+            card.classList.add('visible');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        eventsSectionTitle.textContent = guestName
+          ? `Celebrations for ${guestName}`
+          : 'Your Invited Celebrations';
+        eventsSectionSubtitle.textContent =
+          count === 1
+            ? 'We would be honored by your gracious presence at this special celebration.'
+            : `We look forward to celebrating these ${count} special occasions with you.`;
+
+        // 4. Hide Host Builder button from guests (show preview bar if host is previewing)
+        if (isHostPreview) {
+          hostPreviewBar.classList.remove('hidden');
+        } else {
+          hostPreviewBar.classList.add('hidden');
+          if (openInviteBuilderBtn) openInviteBuilderBtn.classList.add('hidden');
+        }
+      }
+
+      function resetToFullSite() {
+        activeInviteState = null;
+        personalPassSection.classList.add('hidden');
+        heroGuestBadge.classList.add('hidden');
+        hostPreviewBar.classList.add('hidden');
+        heroEventsBtnText.textContent = 'View 8 Ceremonies';
+        eventsSectionTitle.textContent = 'Wedding Celebrations';
+        eventsSectionSubtitle.textContent =
+          'Eight sacred and joyful gatherings filled with prayers, music, Gujarati traditions, and togetherness.';
+        eventCards.forEach((card) => card.classList.remove('hidden'));
+        if (openInviteBuilderBtn) openInviteBuilderBtn.classList.remove('hidden');
+      }
+
+      /* Builder Modal Controls */
+      const inviteBuilderModal = document.getElementById('inviteBuilderModal');
+      const closeInviteBuilderBtn = document.getElementById('closeInviteBuilderBtn');
+      const builderGuestName = document.getElementById('builderGuestName');
+      const builderGuestCount = document.getElementById('builderGuestCount');
+      const builderOutputLink = document.getElementById('builderOutputLink');
+      const builderCopyLinkBtn = document.getElementById('builderCopyLinkBtn');
+      const builderCopyWhatsAppBtn = document.getElementById('builderCopyWhatsAppBtn');
+      const builderPreviewBtn = document.getElementById('builderPreviewBtn');
+      const quickPickBtns = document.querySelectorAll('.quick-pick-btn');
+      const builderEventCheckboxes = document.querySelectorAll('.builder-event-cb');
+      const reopenBuilderBtn = document.getElementById('reopenBuilderBtn');
+      const exitPreviewBtn = document.getElementById('exitPreviewBtn');
+
+      function getSelectedBuilderEvents() {
+        return Array.from(builderEventCheckboxes)
+          .filter((cb) => cb.checked)
+          .map((cb) => cb.value);
+      }
+
+      function syncQuickPickHighlights() {
+        const selected = getSelectedBuilderEvents();
+        quickPickBtns.forEach((btn) => {
+          const presetKey = btn.getAttribute('data-preset');
+          const presetEvents = QUICK_PRESETS[presetKey] || [];
+          const isMatch =
+            selected.length === presetEvents.length &&
+            presetEvents.every((id) => selected.includes(id));
+          btn.classList.toggle('active', isMatch);
+        });
+      }
+
+      function buildPersonalUrl() {
+        const baseUrl = window.location.href.split('?')[0].split('#')[0];
+        const params = new URLSearchParams();
+        const guest = builderGuestName.value.trim();
+        const count = builderGuestCount.value;
+        const selectedEvents = getSelectedBuilderEvents();
+
+        if (guest) params.set('guest', guest);
+        if (count) params.set('count', count);
+        if (selectedEvents.length > 0 && selectedEvents.length < ALL_EVENT_IDS.length) {
+          params.set('events', selectedEvents.join(','));
+        } else if (selectedEvents.length === ALL_EVENT_IDS.length) {
+          params.set('events', 'all');
+        }
+
+        const finalUrl = `${baseUrl}?${params.toString()}`;
+        builderOutputLink.value = finalUrl;
+        return finalUrl;
+      }
+
+      function buildWhatsAppMessage(guest, countVal, selectedIds, inviteUrl) {
+        const greeting = guest ? `Dear *${guest}*,` : `Dear Family & Friends,`;
+        const inviteLine =
+          countVal === 'family'
+            ? `Invitation for: *${guest ? guest + ' & Family' : 'You & Your Family'}*`
+            : `Total Invited: *${countVal === '1' ? '1 Person' : countVal + ' Persons'}*`;
+
+        const eventLines = selectedIds
+          .map((id) => {
+            const ev = EVENTS_CATALOG[id];
+            return ev ? `• *${ev.name}* — ${ev.dateText} at ${ev.time}` : '';
+          })
+          .filter(Boolean)
+          .join('\n');
+
+        return (
+          `|| Shree Ganeshay Namah ||\n\n` +
+          `${greeting}\n` +
+          `With the blessings of Smt. Amisha & Shri Hirenkumar Gandhi, we warmly invite you to the wedding celebrations of *Vidhi & Shyam*!\n\n` +
+          `${inviteLine}\n\n` +
+          `*Your Invited Ceremonies:*\n` +
+          `${eventLines}\n\n` +
+          `View your personal invitation pass & directions here:\n${inviteUrl}\n\n` +
+          `We look forward to celebrating with you!`
+        );
+      }
+
+      function openInviteBuilder() {
+        buildPersonalUrl();
+        inviteBuilderModal.classList.remove('hidden');
+        document.body.classList.add('overflow-hidden');
+      }
+
+      function closeInviteBuilder() {
+        inviteBuilderModal.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      quickPickBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const presetKey = btn.getAttribute('data-preset');
+          const targetEvents = QUICK_PRESETS[presetKey] || [];
+          builderEventCheckboxes.forEach((cb) => {
+            cb.checked = targetEvents.includes(cb.value);
+          });
+          syncQuickPickHighlights();
+          buildPersonalUrl();
+        });
+      });
+
+      builderEventCheckboxes.forEach((cb) => {
+        cb.addEventListener('change', () => {
+          syncQuickPickHighlights();
+          buildPersonalUrl();
+        });
+      });
+
+      builderGuestName.addEventListener('input', buildPersonalUrl);
+      builderGuestCount.addEventListener('change', buildPersonalUrl);
+
+      if (openInviteBuilderBtn) {
+        openInviteBuilderBtn.addEventListener('click', openInviteBuilder);
+      }
+      closeInviteBuilderBtn.addEventListener('click', closeInviteBuilder);
+      inviteBuilderModal.addEventListener('click', (e) => {
+        if (e.target === inviteBuilderModal) closeInviteBuilder();
+      });
+
+      builderCopyLinkBtn.addEventListener('click', () => {
+        const selected = getSelectedBuilderEvents();
+        if (selected.length === 0) {
+          showToast('Please select at least one event.');
+          return;
+        }
+        copyTextToClipboard(buildPersonalUrl(), 'Personal invite link copied!');
+      });
+
+      builderCopyWhatsAppBtn.addEventListener('click', () => {
+        const selected = getSelectedBuilderEvents();
+        if (selected.length === 0) {
+          showToast('Please select at least one event.');
+          return;
+        }
+        const url = buildPersonalUrl();
+        const msg = buildWhatsAppMessage(
+          builderGuestName.value.trim(),
+          builderGuestCount.value,
+          selected,
+          url
+        );
+        copyTextToClipboard(msg, 'Personal WhatsApp invite copied!');
+      });
+
+      builderPreviewBtn.addEventListener('click', () => {
+        const selected = getSelectedBuilderEvents();
+        if (selected.length === 0) {
+          showToast('Please select at least one event.');
+          return;
+        }
+        closeInviteBuilder();
+        applyPersonalizedInvite(
+          {
+            guest: builderGuestName.value.trim(),
+            count: builderGuestCount.value,
+            events: selected,
+          },
+          true
+        );
+        personalPassSection.scrollIntoView({ behavior: 'smooth' });
+      });
+
+      reopenBuilderBtn.addEventListener('click', openInviteBuilder);
+      exitPreviewBtn.addEventListener('click', resetToFullSite);
+
+     /* Read URL Parameters on Page Load */
+      (function initFromUrlParams() {
+        const params = new URLSearchParams(window.location.search);
+        const guestParam = params.get('guest');
+        const countParam = params.get('count');
+        const eventsParam = params.get('events');
+        const isPersonalInviteLink = Boolean(guestParam || countParam || eventsParam);
+
+        if (isPersonalInviteLink) {
+          let parsedEvents = [...ALL_EVENT_IDS];
+          if (eventsParam && eventsParam !== 'all') {
+            parsedEvents = eventsParam
+              .split(',')
+              .map((s) => s.trim().toLowerCase())
+              .filter((id) => Boolean(EVENTS_CATALOG[id]));
+          }
+
+          // Lock personal links: guests cannot edit or open the builder (even with ?host=1)
+          applyPersonalizedInvite(
+            {
+              guest: guestParam || '',
+              count: countParam || '2',
+              events: parsedEvents,
+            },
+            false
+          );
+
+          // Remove all host builder & preview controls from the DOM on personal links
+          if (openInviteBuilderBtn) openInviteBuilderBtn.remove();
+          if (inviteBuilderModal) inviteBuilderModal.remove();
+          if (hostPreviewBar) hostPreviewBar.remove();
+          return;
+        }
+
+        // Main webpage only: allow opening the builder via ?host=1
+        if (params.get('host') === '1') {
+          openInviteBuilder();
+        }
+      })();
+
+      /* Keyboard Escape handler for Modals */
       document.addEventListener('keydown', (e) => {
-        if (lightboxModal.classList.contains('hidden')) return;
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowLeft') showPrevPhoto();
-        if (e.key === 'ArrowRight') showNextPhoto();
+        if (!lightboxModal.classList.contains('hidden')) {
+          if (e.key === 'Escape') closeLightbox();
+          if (e.key === 'ArrowLeft') showPrevPhoto();
+          if (e.key === 'ArrowRight') showNextPhoto();
+          return;
+        }
+        if (!inviteBuilderModal.classList.contains('hidden') && e.key === 'Escape') {
+          closeInviteBuilder();
+        }
       });
 
       /* --------------------------------------------------------------------- */
-      /* 3. PROMINENT LIVE TICKING COUNTDOWN (25 FEB 2027, 08:00 PM IST)       */
+      /* 5. PROMINENT LIVE TICKING COUNTDOWN (25 FEB 2027, 08:00 PM IST)       */
       /* --------------------------------------------------------------------- */
       const TARGET_TIMESTAMP = new Date('2027-02-25T20:00:00+05:30').getTime();
       const cdDays = document.getElementById('cdDays');
@@ -1141,7 +1838,7 @@
       setInterval(updateCountdown, 1000);
 
       /* --------------------------------------------------------------------- */
-      /* 4. MOBILE NAVIGATION TOGGLE                                           */
+      /* 6. MOBILE NAVIGATION TOGGLE                                           */
       /* --------------------------------------------------------------------- */
       const mobileMenuBtn = document.getElementById('mobileMenuBtn');
       const mobileMenu = document.getElementById('mobileMenu');
@@ -1164,7 +1861,7 @@
       });
 
       /* --------------------------------------------------------------------- */
-      /* 5. WHATSAPP INVITE COPY & TOAST NOTIFICATION                          */
+      /* 7. CLIPBOARD HELPER, WHATSAPP COPY & TOAST NOTIFICATION               */
       /* --------------------------------------------------------------------- */
       const copyInviteBtn = document.getElementById('copyInviteBtn');
       const toastEl = document.getElementById('toastMessage');
@@ -1181,15 +1878,18 @@
         }, 3000);
       }
 
-      copyInviteBtn.addEventListener('click', () => {
-        const text =
-          `|| Shree Ganeshay Namah ||\n\n` +
-          `With the blessings of Smt. Amisha & Shri Hirenkumar Gandhi, we warmly invite you to the wedding celebrations of *Vidhi & Shyam*!\n\n` +
-          `Wedding Date: 25 February 2027 (08:00 PM IST)\n` +
-          `Primary Venue: Singapuri Wadi, Salabatpura, Surat, Gujarat\n` +
-          `Ceremonies: Pallu, Mosariya, Katha, Mehndi, Haldi, Gruhshanti, Wedding / Hast Melap & Reception.\n\n` +
-          `We look forward to celebrating with you!`;
+      function copyTextToClipboard(text, successMsg) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard
+            .writeText(text)
+            .then(() => showToast(successMsg))
+            .catch(() => fallbackCopy(text, successMsg));
+        } else {
+          fallbackCopy(text, successMsg);
+        }
+      }
 
+      function fallbackCopy(text, successMsg) {
         try {
           const tempTextarea = document.createElement('textarea');
           tempTextarea.value = text;
@@ -1199,14 +1899,37 @@
           tempTextarea.select();
           document.execCommand('copy');
           document.body.removeChild(tempTextarea);
-          showToast('WhatsApp invitation text copied!');
+          showToast(successMsg);
         } catch (err) {
           showToast('Unable to copy automatically. Please copy manually.');
         }
+      }
+
+      copyInviteBtn.addEventListener('click', () => {
+        if (activeInviteState) {
+          const msg = buildWhatsAppMessage(
+            activeInviteState.guest,
+            activeInviteState.count,
+            activeInviteState.events,
+            window.location.href
+          );
+          copyTextToClipboard(msg, 'WhatsApp invitation text copied!');
+          return;
+        }
+
+        const text =
+          `|| Shree Ganeshay Namah ||\n\n` +
+          `With the blessings of Smt. Amisha & Shri Hirenkumar Gandhi, we warmly invite you to the wedding celebrations of *Vidhi & Shyam*!\n\n` +
+          `Wedding Date: 25 February 2027 (08:00 PM IST)\n` +
+          `Primary Venue: Singapuri Wadi, Salabatpura, Surat, Gujarat\n` +
+          `Ceremonies: Pallu, Mosariya, Katha, Mehndi, Haldi, Gruhshanti, Wedding / Hast Melap & Reception.\n\n` +
+          `We look forward to celebrating with you!`;
+
+        copyTextToClipboard(text, 'WhatsApp invitation text copied!');
       });
 
       /* --------------------------------------------------------------------- */
-      /* 6. SMOOTH SCROLL-REVEAL OBSERVER                                      */
+      /* 8. SMOOTH SCROLL-REVEAL OBSERVER                                      */
       /* --------------------------------------------------------------------- */
       const revealEls = document.querySelectorAll('.reveal');
       if ('IntersectionObserver' in window) {
